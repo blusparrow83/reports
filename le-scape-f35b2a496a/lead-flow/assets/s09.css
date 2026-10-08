@@ -1,4 +1,4 @@
-.fc{display:flex;flex-direction:column;align-items:center;max-width:780px;margin:22px auto 8px}
+.fc{display:flex;flex-direction:column;align-items:center;width:100%;margin:22px 0 8px}
 .fc-n{width:100%;box-sizing:border-box;background:var(--surface);border-left:3px solid var(--cyan);border-radius:0 6px 6px 0;padding:14px 18px;text-align:left}
 .fc-n b{display:block;font-family:var(--font-head);font-weight:700;font-size:15px;color:#fff;margin-bottom:4px}
 .fc-n span{display:block;font-size:14px;line-height:1.55}
