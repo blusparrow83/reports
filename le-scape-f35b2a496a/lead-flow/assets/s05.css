@@ -1,0 +1,133 @@
+ .tm { font-size: 0.55em; font-weight: 400; vertical-align: super; margin-left: 1px; line-height: 0; }
+  .ladder-trigger .phase-name { text-transform: none !important; letter-spacing: 0.01em !important; font-size: 13px !important; }
+
+ .mod, .ladder-trigger .phase-name, .cover-title { font-family: 'Sansation', 'Exo', sans-serif !important; }
+ .mod { color: var(--cyan) !important; font-weight: 700 !important; font-size: 15px !important; }
+ .mod b { color: var(--white) !important; font-weight: 400 !important; }
+ .mrow p .mod { font-size: 13px !important; }
+ .ladder-trigger .phase-name { color: var(--cyan) !important; font-weight: 700 !important; font-size: 15px !important; }
+ .ladder-trigger .phase-name b { color: var(--white) !important; font-weight: 400 !important; }
+  
+ .sub-label { font-family: var(--font-head); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted-2); margin: 34px 0 16px; display: flex; align-items: center; gap: 12px; font-weight: 700; }
+ .sub-label::after { content: ''; flex: 1; height: 1px; background: var(--divider); }
+ .start-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+ .start-card { background: var(--surface); border: 1px solid var(--divider); border-radius: 8px; padding: 16px 18px; }
+ .start-card .mod { margin-bottom: 10px; }
+ .start-card p { font-size: 13.5px; color: var(--off-white); line-height: 1.5; margin: 0; }
+ .combo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+ .combo-card { background: linear-gradient(160deg, rgba(0,197,224,0.12), rgba(0,197,224,0.02)); border: 1px solid var(--cyan-line); border-top: 3px solid var(--cyan); border-radius: 8px; padding: 22px 20px; }
+ .combo-title { font-family: var(--font-head); font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--white); margin-bottom: 14px; line-height: 1.3; }
+ .combo-pills { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-bottom: 14px; }
+ .combo-pills .mod { margin: 0; }
+ .combo-pills .plus { color: var(--cyan); font-weight: 700; font-size: 18px; }
+ .combo-card p { font-size: 13.5px; color: var(--off-white); line-height: 1.55; margin: 0; }
+ @media (max-width: 900px) { .start-grid, .combo-grid { grid-template-columns: 1fr 1fr; } }
+ @media (max-width: 600px) { .start-grid, .combo-grid { grid-template-columns: 1fr; } }
+
+ .section-title, .closing-title, .pcard-title, .combo-title, .sub-label, .cover-subtitle { font-family: 'Sansation', 'Exo', sans-serif !important; font-weight: 700 !important; text-transform: uppercase !important; }
+ .section-title { letter-spacing: 0.02em !important; }
+
+ *, *::before, *::after { letter-spacing: 0 !important; }
+
+ :root { --font-head: 'Sansation', 'Exo', sans-serif; }
+ .section-label, .cover-eyebrow, .cover-meta-label, .pcard-num, .pcard-tag, .metric-num, .metric-lbl, .includes-label, .tier-tag, .tier-name, .steps-list h4, .slash { font-family: 'Sansation', 'Exo', sans-serif !important; font-weight: 700 !important; }
+
+ .section-label { font-size: 15px !important; }
+ .cover-eyebrow { font-size: 15px !important; }
+ .cover-subtitle { font-size: 18px !important; }
+ .cover-meta-label { font-size: 13px !important; }
+ .pcard-num { font-size: 16px !important; }
+ .pcard-tag { font-size: 12px !important; }
+ .metric-lbl { font-size: 12px !important; }
+ .includes-label, .tier-tag { font-size: 13px !important; }
+ .sub-label { font-size: 14px !important; }
+ .slash { font-size: 22px !important; }
+ .section-label::after { width: 60px; }
+
+/* Pillar stack: layered build-up */
+.pgrid{display:flex!important;flex-direction:column;gap:30px;margin-top:40px;position:relative}
+.pgrid::before{content:'';position:absolute;left:50%;top:10px;bottom:10px;width:1px;background:linear-gradient(var(--cyan-line),transparent);z-index:0}
+.pcard{position:relative;z-index:1;display:grid!important;grid-template-columns:270px 1fr;grid-template-areas:"top mods" "title mods" "q mods";column-gap:34px;align-content:start;padding:28px 30px!important;border-top:3px solid var(--cyan)!important;box-shadow:none}
+.pcard:nth-child(1){background-image:linear-gradient(rgba(0,197,224,.03),rgba(0,197,224,.03))}
+.pcard:nth-child(2){background-image:linear-gradient(rgba(0,197,224,.06),rgba(0,197,224,.06))}
+.pcard:nth-child(3){background-image:linear-gradient(rgba(0,197,224,.09),rgba(0,197,224,.09))}
+.pcard:nth-child(4){background-image:linear-gradient(rgba(0,197,224,.14),rgba(0,197,224,.14));border-color:var(--cyan-line)}
+.pcard:not(:first-child)::before{content:'+';position:absolute;left:50%;top:-30px;transform:translateX(-50%);width:26px;height:26px;border-radius:50%;background:var(--cyan);color:#1c2022;font-family:'Sansation','Exo',sans-serif;font-weight:700;font-size:18px;line-height:26px;text-align:center;box-shadow:0 0 0 5px #32373A}
+.pcard-top{grid-area:top;flex-direction:column;align-items:flex-start!important;gap:10px!important;margin-bottom:12px!important}
+.pcard-top .pcard-tag{margin-left:0!important}
+.pcard-num{font-size:44px!important;line-height:1;color:var(--cyan)}
+.pcard-title{grid-area:title;font-size:28px!important}
+.pcard-q{grid-area:q;margin:0!important}
+.pcard-mods{grid-area:mods;align-self:center}
+.lvl{display:flex;gap:4px;margin-top:2px}
+.lvl i{display:block;width:26px;height:6px;border-radius:3px;background:rgba(255,255,255,.12)}
+.lvl i.on{background:var(--cyan)}
+
+/* Cover title: client name in Title Case (never all caps), white with a cyan accent word, Sansation bold */
+.cover-title { color: var(--white) !important; font-weight: 700 !important; text-transform: none !important; }
+.cover-title span { color: var(--cyan) !important; font-weight: 700 !important; }
+/* Brand-name cover (framework only, e.g. BluPrint): add class "brandname" to the h1 to get Blu cyan + rest white, title case */
+.cover-title.brandname { color: var(--cyan) !important; text-transform: none !important; }
+.cover-title.brandname span { color: var(--white) !important; }
+
+/* ===== Proposal components (Oct 2026): systems strip, stacked work layers, term cards ===== */
+.sys-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin:30px 0 6px}
+.sys-card{background:linear-gradient(160deg,rgba(0,197,224,.12),rgba(0,197,224,.02));border:1px solid var(--cyan-line);border-top:3px solid var(--cyan);border-radius:8px;padding:16px 18px}
+.sys-card .mod{margin-bottom:8px}
+.sys-card p{font-size:13.5px;color:var(--off-white);line-height:1.5;margin:0}
+.sys-label{font-family:'Sansation','Exo',sans-serif;font-weight:700;font-size:14px;color:var(--muted-2);margin:34px 0 0;display:flex;align-items:center;gap:12px;text-transform:uppercase}
+.sys-label::after{content:'';flex:1;height:1px;background:var(--divider)}
+.pillar-systems{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 16px}
+.pillar-systems .tag{font-family:'Sansation','Exo',sans-serif;font-weight:700;font-size:12px;color:var(--muted);border:1px solid var(--divider);border-radius:20px;padding:4px 12px}
+.pillar-systems .mod{margin:0}
+.ladder-sys{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.ladder-sys .mod{margin:0;font-size:12px!important}
+/* work layers: each pillar is a stacked band with a + badge between */
+.work-stack{position:relative}
+.work-stack::before{content:'';position:absolute;left:50%;top:20px;bottom:20px;width:1px;background:linear-gradient(var(--cyan-line),transparent)}
+.work-stack .pillar{position:relative;margin-top:30px;padding:28px 30px;background:var(--surface);border:1px solid var(--divider);border-top:3px solid var(--cyan);border-radius:8px;box-shadow:none}
+.work-stack .pillar:nth-child(1){background-image:linear-gradient(rgba(0,197,224,.03),rgba(0,197,224,.03))}
+.work-stack .pillar:nth-child(2){background-image:linear-gradient(rgba(0,197,224,.07),rgba(0,197,224,.07))}
+.work-stack .pillar:nth-child(3){background-image:linear-gradient(rgba(0,197,224,.11),rgba(0,197,224,.11))}
+.work-stack .pillar+.pillar::before{content:'+';position:absolute;left:50%;top:-30px;transform:translateX(-50%);width:26px;height:26px;border-radius:50%;background:var(--cyan);color:#1c2022;font-family:'Sansation','Exo',sans-serif;font-weight:700;font-size:18px;line-height:26px;text-align:center;box-shadow:0 0 0 5px #32373A}
+.work-stack .pillar-num{font-size:34px!important;line-height:1}
+.work-stack .pillar-header{align-items:center}
+/* terms: card grid */
+.term-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;align-items:stretch;grid-auto-rows:1fr;margin-top:28px;counter-reset:term}
+.term-card{counter-increment:term;position:relative;background:var(--surface);border:1px solid var(--divider);border-left:3px solid var(--cyan);border-radius:0 8px 8px 0;padding:18px 22px 18px 64px}
+.term-card::before{content:counter(term,decimal-leading-zero);position:absolute;left:20px;top:16px;font-family:'Sansation','Exo',sans-serif;font-weight:700;font-size:24px;color:var(--cyan);line-height:1}
+.term-label{font-family:'Sansation','Exo',sans-serif;font-weight:700;font-size:13px;color:var(--cyan);text-transform:uppercase;margin-bottom:6px}
+.term-val{font-family:'Sansation','Exo',sans-serif;font-weight:700;font-size:22px;color:var(--white);line-height:1.15;margin-bottom:6px}
+.term-card p{font-size:13.5px;color:var(--off-white);line-height:1.55;margin:0}
+@media(max-width:768px){.term-grid{grid-template-columns:1fr}.work-stack::before{left:24px}.work-stack .pillar{padding:22px 18px}.work-stack .pillar+.pillar::before{left:24px;transform:none}.term-card{padding-left:58px}}
+
+/* Meet Your Strategist */
+.profile{display:grid;grid-template-columns:200px 1fr;gap:36px;align-items:center;margin:8px 0 28px}
+.profile .ph{width:200px;height:200px;border-radius:50%;object-fit:cover;border:3px solid var(--cyan);box-shadow:none}
+.profile h3{font-family:'Sansation',sans-serif;font-size:24px;font-weight:700;text-transform:uppercase;margin:0 0 6px;color:var(--white);letter-spacing:0}
+.profile .role{font-family:'Sansation',sans-serif;font-weight:700;font-size:14px;text-transform:uppercase;color:var(--cyan);margin-bottom:14px;letter-spacing:0}
+.profile p{margin:0;color:var(--off-white);line-height:1.7}
+.chip-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:0 0 28px}
+.chip{background:var(--surface);border:1px solid var(--divider);border-top:3px solid var(--cyan);padding:16px 14px;text-align:center}
+.chip b{display:block;font-family:'Sansation',sans-serif;font-size:20px;font-weight:700;color:var(--white);margin-bottom:6px;letter-spacing:0}
+.chip span{font-size:13px;color:var(--muted);line-height:1.4;display:block}
+.quote-card{background:var(--surface);border-left:4px solid var(--cyan);padding:24px 28px;margin:28px 0 0}
+.quote-card p{margin:0 0 12px;font-style:italic;color:var(--off-white);line-height:1.7;font-size:15px}
+
+.quote-card .by{margin:0 0 16px;font-style:normal;font-family:'Sansation',sans-serif;font-weight:700;font-size:13px;letter-spacing:0;text-transform:uppercase;color:var(--cyan)}
+@media(max-width:768px){.profile{grid-template-columns:1fr;justify-items:center;text-align:center}.chip-grid{grid-template-columns:repeat(2,1fr)}}
+
+.pi-card{background:var(--surface);border:1px solid var(--divider);border-left:4px solid var(--cyan);padding:22px 26px;margin:0 0 28px}
+.pi-card .pi-head{font-family:'Sansation',sans-serif;font-weight:700;font-size:15px;text-transform:uppercase;color:var(--white);margin-bottom:10px;letter-spacing:0}
+.pi-card .pi-head span{color:var(--cyan)}
+.pi-card p{margin:0 0 10px;color:var(--off-white);font-size:15px;line-height:1.7}
+.pi-card p:last-child{margin:0}
+
+.quote-card .stars{color:#fff;line-height:0;margin:0 0 14px}.quote-card .stars svg{display:block;max-width:100%;height:auto}
+
+.section:has(+ .closing){border-bottom:none}
+.section:has(+ .closing) .quote-card{margin-bottom:0}
+
+/* Clean stack connector: down chevron, no circle or spine */
+.pgrid::before,.work-stack::before{display:none!important}
+.pcard:not(:first-child)::before,.work-stack .pillar+.pillar::before{content:''!important;position:absolute;left:50%;top:-20px;transform:translateX(-50%) rotate(45deg);width:9px;height:9px;border:0;border-right:2px solid var(--cyan);border-bottom:2px solid var(--cyan);border-radius:1px;background:none;box-shadow:none;font-size:0;line-height:0}
