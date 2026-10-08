@@ -1731,7 +1731,7 @@ var API="https://script.google.com/macros/s/AKfycbxx6cK23WVOVelIvpjX-8OcklVr0OMg
 var SLUG=window.__cmSlug||(location.pathname.split("/").filter(Boolean).pop()||"home").replace(/\.html$/,"");
 var h=document.documentElement,fab=document.getElementById("cm-fab"),bt=document.querySelector(".topnav .btns");
 if(bt&&fab){bt.insertBefore(fab,bt.firstChild);fab.classList.add("in-nav")}
-var KEY=null;try{var m=location.search.match(/[?&]admin=([^&]+)/);if(m){localStorage.setItem("bs-cm-key",decodeURIComponent(m[1]));history.replaceState(null,"",location.pathname+location.hash)}KEY=localStorage.getItem("bs-cm-key")}catch(x){}
+var KEY=null;try{var m=location.hash.match(/admin=([^&]+)/);if(m){localStorage.setItem("bs-cm-key",decodeURIComponent(m[1]));history.replaceState(null,"",location.pathname+location.search)}KEY=localStorage.getItem("bs-cm-key")}catch(x){}
 var list=[],pins={},hov=null,sel=null;
 function $(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e}
 var hint=$("div");hint.id="cm-hint";hint.textContent="Click anything on the page to comment on it. Select text first to quote it.";
