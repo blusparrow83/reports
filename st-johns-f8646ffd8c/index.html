@@ -765,12 +765,15 @@ table th strong,table td strong.sm{font-size:12px!important}
 <body>
 <style id="bs-fix1">
 /* nav: brand + links + actions */
-html body .topnav .nav-brand{display:none;align-items:center;flex:none;padding:0;border:0!important;border-radius:0}
+html body .topnav .nav-brand{display:flex;align-items:center;flex:none;padding:0;border:0!important;border-radius:0}
 html body .topnav .nav-logo{height:26px;width:auto;display:block}
 html.pv .topnav .nav-logo{filter:brightness(0)}
+html body .topnav{gap:22px}
 html body .topnav .links{flex:1 1 auto}
 html body .topnav .menu-btn{display:none}
 html body .topnav a:hover{border-color:transparent!important;color:#00C5E0}
+html body .cover-logo{display:none}
+@media print{html body .cover-logo{display:block}}
 /* Print Version hidden and Menu shown at 900px and under */
 @media(max-width:900px){
  html body .topnav{position:sticky;flex-wrap:wrap;gap:0;padding:10px 16px;justify-content:space-between}
