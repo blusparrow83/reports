@@ -225,6 +225,19 @@ th{white-space:normal}
  td.nt textarea{min-height:64px}
 }
 @media print{header.hd,nav.side,.acts,.pill{display:none}details{display:block}details>.det{display:block}}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:14px 0 18px}
+.pane{border:1px solid var(--line);border-radius:14px;padding:18px 20px;background:#fff}
+.pane.td{background:var(--pill);border-color:#dccfb6}
+.plbl{font:700 12px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--brown);margin-bottom:10px}
+.pval{font-size:17px;line-height:1.65}
+ul.todo{list-style:none;margin:0;padding:0}
+ul.todo li{position:relative;padding:8px 0 8px 28px;font-size:17px;line-height:1.55;font-weight:600;color:var(--green);border-top:1px solid #e4d8c2}
+ul.todo li:first-child{border-top:none;padding-top:2px}
+ul.todo li:before{content:"";position:absolute;left:2px;top:13px;width:14px;height:14px;border:2px solid var(--gold);border-radius:4px;background:#fff}
+ul.todo li:first-child:before{top:7px}
+.body textarea{margin-top:4px}
+.body details{margin-top:14px}
+@media(max-width:900px){.two{grid-template-columns:1fr}}
 </style></head><body>
 <div class="topbar">Happy Healing &bull; Company Cleanup &bull; Tuesday, October 20, 2026</div>
 <header class="hd"><div class="in">
@@ -352,6 +365,7 @@ var R=[
 
 var SUMMARY=[
 "Goal: every tool, subscription and account is owned by Happy Healing.",
+"Matt needs Admin access on every tool he works in to lead marketing. Caroline stays the owner (management@) and grants the access; nothing else changes about ownership.",
 "Order of work: payment processing first, then subscriptions and software, then who has access to what, new website accounts and alerts.",
 "One item at a time. Nothing is cancelled, moved or deleted without your yes.",
 "Before any change, I save a copy first (the litigation hold rule).",
@@ -391,13 +405,14 @@ var DEC=[
 "Two things only you can see: Facebook, Accounts Center, Password and security, Where you are logged in, as a screenshot with anything unfamiliar logged out first, and the Google Workspace Admin users and device activity.",
 "Which login manages the Google Business Profile listing, since the Matt login shows 0 businesses.",
 "Whether webteam@ mail forwarded to steven@ since May 22 is stopped, and that mailbox suspended after a saved copy.",
-"Your yes on moving every paid plugin license (Elementor Pro, Gravity Forms, ClickCease and the rest) to a Happy Healing owned login, turning off WP File Manager, and saving a copy of every custom plugin and code snippet first (item 19)."];
+"Your yes on moving every paid plugin license (Elementor Pro, Gravity Forms, ClickCease and the rest) to a Happy Healing owned login, turning off WP File Manager, and saving a copy of every custom plugin and code snippet first (item 19).",
+"Your yes to give Matt Admin access on every tool he works in, so he can lead marketing: Google Ads, Merchant Center, Analytics, Tag Manager, Search Console, Business Profile, Meta, Klaviyo, WordPress, WP Engine, Google Workspace, Cloudflare, GitHub, Zendesk, Zapier and the rest of the list in item 18. Caroline stays owner on management@."];
 
 var GROUPS=[
 ["Payments And Billing",[0,1,2,15]],
 ["Google Ads, Merchant Center And Business Profile",[4,5,25]],
 ["Meta, Facebook And Social",[11,12,13,14,16,17]],
-["Account Ownership And Access Removals",[18,19,20,21,3,7,26]],
+["Account Ownership And Access Removals",[18,19,20,21,3,7,26,28]],
 ["Website, Email And Workspace Security",[22,23,6,24,27]],
 ["Agreement And Account Register",[8,9,10]]];
 var K="hhReview2",S={};try{S=JSON.parse(localStorage.getItem(K)||"{}");}catch(e){}
@@ -430,6 +445,7 @@ Object.keys(SEED).forEach(function(k){
 });
 function save(){try{localStorage.setItem(K,JSON.stringify(S));}catch(e){}}
 var filt="all",expAll=true;
+function todo(t){return '<ul class="todo">'+String(t).split(/(?<=[.?!])\s+/).filter(Boolean).map(function(x){return '<li>'+x+'</li>'}).join('')+'</ul>'}
 var HID=[15,19];
 var NUM={1:1,2:2,3:3,4:4,5:5,6:6,7:7,8:8,9:9,10:10,11:11,12:12,13:13,14:14,16:15,17:16,18:17,20:18,21:19,15:0,19:0};
 var SEC={
@@ -509,9 +525,7 @@ function render(){
   if(!hid&&filt=="fix"&&it[2]!="red")return;
   var sec=["",""];
   var card='<article class="card '+it[2]+(d?" d-"+d:"")+'" id="i'+it[0]+'"><div class="ch"><div class="num">'+NUM[it[0]]+'</div><h2>'+it[1]+'</h2><span class="tag '+it[2]+'">'+TAG[it[2]]+'</span></div><div class="body">'+
-  '<div class="row"><div class="lbl">Where It Stands</div><div class="val">'+it[3]+'</div></div>'+
-  (sec[0]?'<div class="row"><div class="lbl">Security</div><div class="val"><b>'+sec[0]+':</b> '+sec[1]+'</div></div>':'')+
-  '<div class="row dn"><div class="lbl">Decision Needed</div><div class="val">'+it[4]+'</div></div>'+
+  '<div class="two"><div class="pane st"><div class="plbl">Where It Stands</div><div class="pval">'+it[3]+'</div></div><div class="pane td"><div class="plbl">Caroline To Do</div>'+todo(it[4])+'</div></div>'+
   '<textarea placeholder="Notes" data-i="'+i+'">'+esc(s.t)+'</textarea>'+
   (it[6]?'<details'+(expAll?' open':'')+'><summary>Full Details</summary><div class="det">'+fmt(it[6])+'</div></details>':'')+
   '<div class="acts" style="margin-top:14px"><button class="a'+(d=="a"?" on":"")+'" data-i="'+i+'" data-d="a">Approve</button><button class="n'+(d=="n"?" on":"")+'" data-i="'+i+'" data-d="n">No</button><button class="l'+(d=="l"?" on":"")+'" data-i="'+i+'" data-d="l">Later</button></div>'+
