@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta name="robots" content="noindex,nofollow"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Happy Healing Cleanup Review</title>
+<style>
+:root{color-scheme:light;--page:#f7f3ea;--surface:#fcfaf4;--line:#e6dccb;--pill:#f2eadc;--green:#053529;--gold:#c89a2c;--brown:#9e5f00;--ink:#1a1a1a;--muted:#6b6557;--red:#b23a2b;--amber:#c89a2c;--gray:#8a8577;--ok:#2d6a4f;
+--sans:Montserrat,"Gotham HH",system-ui,-apple-system,Segoe UI,Arial,sans-serif;--serif:"Fertigo Pro HH","Instrument Serif",Georgia,serif}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:150px}
+body{margin:0;background:var(--page);color:var(--ink);font:400 15px/1.6 var(--sans)}
+.topbar{background:var(--gold);color:#fff;text-align:center;font:600 11px var(--sans);letter-spacing:.14em;text-transform:uppercase;padding:7px 10px}
+header.hd{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--line)}
+.hd .in{max-width:1180px;margin:0 auto;padding:12px 20px;display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.brand{font:400 22px var(--serif);letter-spacing:.06em;color:var(--green);text-transform:uppercase;line-height:1.1}
+.brand small{display:block;font:600 10px var(--sans);letter-spacing:.18em;color:var(--brown)}
+.stat{flex:1;min-width:240px}
+.prog{height:10px;background:var(--pill);border-radius:99px;overflow:hidden;display:flex;border:1px solid var(--line)}
+.prog i{display:block;height:100%}
+.cnt{font:600 12px var(--sans);margin-top:5px;color:var(--green);letter-spacing:.02em}
+.tools{display:flex;gap:8px;flex-wrap:wrap}
+.pill{font:600 12px var(--sans);letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--green);background:#fff;color:var(--green);border-radius:99px;padding:8px 14px;cursor:pointer}
+.pill.on{background:var(--green);color:#fff}
+.pill:hover{background:var(--pill)}.pill.on:hover{background:var(--green)}
+.layout{max-width:1180px;margin:0 auto;padding:24px 20px 80px;display:grid;grid-template-columns:230px 1fr;gap:28px}
+nav.side{position:sticky;top:112px;align-self:start;max-height:calc(100vh - 130px);overflow:auto;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px}
+nav.side h4{margin:4px 8px 8px;font:700 10px var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--brown)}
+nav.side a{display:flex;gap:8px;align-items:center;padding:6px 8px;border-radius:8px;color:var(--ink);text-decoration:none;font:500 12.5px/1.3 var(--sans)}
+nav.side a:hover{background:var(--pill)}
+nav.side .n{width:9px;height:9px;border-radius:50%;flex:none;background:var(--gray)}
+.n.red{background:var(--red)}.n.amber{background:var(--amber)}.n.gray{background:var(--gray)}
+.n.a{background:var(--ok)!important}.n.n2{background:#555!important}.n.l{background:#d9b45a!important;outline:2px solid var(--gold)}
+.sep{font:700 10px var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--brown);margin:12px 8px 4px}
+.hero{background:var(--green);color:#fdfbf5;border-radius:18px;padding:30px 32px;margin-bottom:22px}
+.hero h1{margin:0 0 6px;font:400 34px/1.15 var(--serif);letter-spacing:.05em;text-transform:uppercase}
+.hero p{margin:6px 0 0;color:#e9e2cf;font-size:14px}
+.legend{display:flex;gap:16px;flex-wrap:wrap;margin-top:16px;font:600 11px var(--sans);letter-spacing:.06em;text-transform:uppercase;color:#f1ead6}
+.dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:middle}
+.rules{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 22px;margin-bottom:26px}
+.rules h3{margin:0 0 8px;font:400 22px var(--serif);letter-spacing:.04em;color:var(--green);text-transform:uppercase}
+.rules ul{margin:0;padding-left:20px}.rules li{margin:5px 0}
+.part{font:400 26px var(--serif);letter-spacing:.05em;text-transform:uppercase;color:var(--green);margin:34px 0 14px;display:flex;align-items:center;gap:14px}
+.part:after{content:"";flex:1;height:1px;background:var(--line)}
+.card{background:var(--surface);border:1px solid var(--line);border-left:8px solid var(--gray);border-radius:16px;margin:0 0 18px;overflow:hidden;transition:background .15s}
+.card.red{border-left-color:var(--red)}.card.amber{border-left-color:var(--amber)}.card.gray{border-left-color:var(--gray)}
+.card.d-a{background:#eef6ee}.card.d-n{background:#f6ecea}.card.d-l{background:#fbf3de}
+.ch{display:flex;gap:14px;align-items:center;padding:18px 22px 8px}
+.num{flex:none;width:40px;height:40px;border-radius:50%;background:var(--green);color:#fff;display:grid;place-items:center;font:600 15px var(--sans)}
+.ch h2{margin:0;font:400 25px/1.2 var(--serif);letter-spacing:.03em;color:var(--green);flex:1}
+.tag{font:700 10px var(--sans);letter-spacing:.1em;text-transform:uppercase;border-radius:99px;padding:5px 11px;color:#fff;white-space:nowrap}
+.tag.red{background:var(--red)}.tag.amber{background:var(--brown)}.tag.gray{background:var(--gray)}.tag.ref{background:var(--green)}
+.body{padding:6px 22px 20px}
+.row{display:grid;grid-template-columns:150px 1fr;gap:14px;padding:11px 0;border-top:1px solid var(--line)}
+.row:first-child{border-top:none}
+.lbl{font:700 10.5px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--brown);padding-top:3px}
+.val{font-size:15px}
+.row.dn .val{font-weight:600;color:var(--green);font-size:16px}
+.steps{margin:0;padding-left:20px}.steps li{margin:4px 0}
+.acts{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+.acts button{flex:1;min-width:110px;padding:12px;border-radius:12px;border:2px solid var(--line);background:#fff;font:700 13px var(--sans);letter-spacing:.08em;text-transform:uppercase;cursor:pointer;color:var(--ink)}
+.acts button:hover{border-color:var(--green)}
+.acts .a.on{background:var(--ok);border-color:var(--ok);color:#fff}
+.acts .n.on{background:var(--red);border-color:var(--red);color:#fff}
+.acts .l.on{background:var(--gold);border-color:var(--gold);color:#fff}
+textarea{width:100%;margin-top:10px;border:1px solid var(--line);border-radius:12px;padding:10px 12px;font:400 14px var(--sans);min-height:42px;resize:vertical;background:#fff}
+details{margin-top:14px;border:1px solid var(--line);border-radius:12px;background:#fff}
+summary{cursor:pointer;list-style:none;padding:12px 16px;font:700 12px var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--green);display:flex;justify-content:space-between;align-items:center}
+summary::-webkit-details-marker{display:none}
+summary:after{content:"+";font:400 22px var(--sans);color:var(--brown)}
+details[open] summary:after{content:"\2212"}
+details[open] summary{border-bottom:1px solid var(--line)}
+.det{padding:6px 18px 18px}
+.det p{margin:10px 0}
+.det p.b{font:400 20px var(--serif);letter-spacing:.04em;color:var(--green);margin:20px 0 8px;text-transform:uppercase}
+.det ul{margin:8px 0;padding-left:20px}.det li{margin:5px 0}
+.tw{overflow-x:auto;margin:10px 0;border:1px solid var(--line);border-radius:10px}
+table{border-collapse:collapse;width:100%;font-size:13.5px;min-width:520px}
+th{background:var(--pill);color:var(--green);font:700 11px var(--sans);letter-spacing:.08em;text-transform:uppercase;text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:bottom}
+td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:none}
+td:first-child{font-weight:600;color:var(--green)}
+tbody tr:nth-child(even) td{background:#fdfbf6}
+.st{display:inline-block;font:700 10.5px var(--sans);letter-spacing:.06em;text-transform:uppercase;border-radius:99px;padding:3px 10px;color:#fff;white-space:nowrap}
+.st.ok{background:var(--ok)}.st.no{background:var(--brown)}
+.dec li{list-style:none;margin:0;padding:10px 12px 10px 4px;border-bottom:1px solid var(--line);display:flex;gap:12px;align-items:flex-start}
+.dec{padding:0!important}
+.dec input{width:20px;height:20px;margin-top:3px;accent-color:var(--green);flex:none}
+.dec li.done span{color:var(--muted);text-decoration:line-through}
+.sumtop{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px 24px;margin-bottom:22px}
+.sumtop h3{margin:0 0 8px;font:400 26px var(--serif);letter-spacing:.05em;text-transform:uppercase;color:var(--green)}
+.sumtop .goal{margin:0 0 16px;font-size:15px}
+.tiles{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:16px}
+.tile{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px;text-align:center;border-top:4px solid var(--green)}
+.tile b{display:block;font:400 30px var(--serif);color:var(--green)}
+.tile span{font:700 10px var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.tile.r{border-top-color:var(--red)}.tile.a{border-top-color:var(--amber)}.tile.g{border-top-color:var(--gray)}
+.sgrid,.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.sbox{background:#fff;border:1px solid var(--line);border-left:6px solid var(--green);border-radius:12px;padding:12px 16px}
+.sbox.ok{border-left-color:var(--ok)}.sbox.no{border-left-color:var(--red)}.sbox.gr{border-left-color:var(--gray)}
+.sbox h4{margin:0 0 6px;font:700 11px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--brown)}
+.sbox ul{margin:0;padding-left:18px;font-size:13.5px}.sbox li{margin:4px 0}
+@media(max-width:900px){.tiles{grid-template-columns:repeat(2,1fr)}.sgrid,.grid{grid-template-columns:1fr}}
+.gbox{border-left-color:var(--green);margin:0}.gbox .ch h2{font-size:21px}.gbox .body{padding-top:0}
+.gbox .dec li span{font-size:14px}
+.foot{font-size:12px;color:var(--muted);margin-top:28px;text-align:center}
+@media(max-width:900px){.layout{grid-template-columns:1fr}nav.side{display:none}.row{grid-template-columns:1fr;gap:4px}.hero h1{font-size:27px}.ch h2{font-size:21px}html{scroll-padding-top:200px}}
+.stat,.gbox .ch .tag{display:none!important}
+/* stacked layout and larger type */
+body{font-size:18px;line-height:1.65}
+.tiles,.sgrid,.grid{display:flex!important;flex-direction:column;gap:14px}
+.tile{display:flex;align-items:center;gap:16px;text-align:left;padding:12px 18px}
+.tile b{font-size:34px;min-width:60px}
+.tile span{font-size:13px}
+.sbox h4{font-size:13px}.sbox ul{font-size:17px}
+.sumtop .goal{font-size:18px}.sumtop h3{font-size:30px}
+.hero h1{font-size:40px}.hero p{font-size:17px}.legend{font-size:13px}
+.rules li{font-size:17px}.rules h3{font-size:26px}
+.ch h2{font-size:30px}.gbox .ch h2{font-size:25px}
+.num{width:46px;height:46px;font-size:18px}
+.tag{font-size:12px}
+.lbl{font-size:13px}.val{font-size:18px}.row.dn .val{font-size:19px}
+.row{grid-template-columns:170px 1fr}
+.acts button{font-size:15px;padding:14px}
+textarea{font-size:16px}
+summary{font-size:14px}
+.det{font-size:17px}.det p.b{font-size:24px}
+table{font-size:16px}th{font-size:12.5px}
+.gbox .dec li span{font-size:17px}
+.part{font-size:30px}
+nav.side a{font-size:14px}.pill{font-size:13px}.cnt{font-size:14px}
+.foot{font-size:14px}
+/* spacing and sectioning pass */
+.layout{grid-template-columns:220px minmax(0,820px);gap:48px;justify-content:center;padding-top:40px}
+main>section,main>article,main>.part,main>.grid{margin-left:0;margin-right:0}
+.hero{padding:44px 44px 40px;margin-bottom:48px}
+.hero h1{margin-bottom:14px}.hero p{margin-top:10px;line-height:1.7}
+.legend{margin-top:26px;gap:22px}
+.sumtop{padding:36px 36px 30px;margin-bottom:48px;border-radius:20px}
+.sumtop h3{margin-bottom:16px;padding-bottom:16px;border-bottom:2px solid var(--line)}
+.sumtop .goal{margin-bottom:28px;line-height:1.75}
+.sgrid{gap:24px!important}
+.sbox{padding:22px 26px;border-radius:14px}
+.sbox h4{margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.sbox li{margin:12px 0;line-height:1.65}
+.rules{padding:30px 34px;margin-bottom:56px;border-radius:20px}
+.rules h3{margin-bottom:16px}
+.rules li{margin:14px 0;line-height:1.7}
+.part{margin:80px 0 36px;padding:20px 28px;background:var(--green);color:#fdfbf5;border-radius:16px;font-size:30px;letter-spacing:.06em}
+.part:after{display:none}
+.card{margin:0 0 44px;border-radius:20px;border-left-width:10px;box-shadow:0 1px 0 rgba(0,0,0,.03)}
+.ch{padding:26px 32px 22px;gap:18px;background:#fff;border-bottom:1px solid var(--line);align-items:flex-start}
+.ch h2{padding-top:4px;line-height:1.25}
+.body{padding:12px 32px 32px}
+.row{display:block;padding:24px 0;border-top:1px solid var(--line)}
+.row:first-child{border-top:none}
+.lbl{display:block;margin-bottom:10px;font-size:13px}
+.val{line-height:1.75}
+.row.dn{background:var(--pill);margin:6px -16px;padding:22px 16px;border-radius:12px;border-top:none}
+.row.dn+.row{border-top:none}
+.steps li{margin:12px 0;line-height:1.7}
+.acts{margin-top:28px;gap:14px;padding-top:24px;border-top:2px dashed var(--line)}
+textarea{margin-top:18px;min-height:56px;padding:14px 16px}
+details{margin-top:28px;border-radius:14px}
+summary{padding:18px 22px}
+.det{padding:10px 26px 28px}
+.det p{margin:16px 0;line-height:1.75}
+.det p.b{margin:34px 0 12px;padding-top:24px;border-top:1px solid var(--line)}
+.det li{margin:10px 0;line-height:1.7}
+.tw{margin:18px 0 26px}
+th{padding:14px 16px}td{padding:14px 16px;line-height:1.55}
+.gbox{margin:0}
+.gbox .body{padding:6px 32px 26px}
+.dec li{padding:16px 6px 16px 4px;gap:16px;line-height:1.6}
+.dec li:last-child{border-bottom:none}
+.grid{gap:32px!important}
+.foot{margin-top:72px}
+@media(max-width:900px){.layout{padding-top:24px;gap:24px}.hero,.sumtop,.rules{padding:26px 22px}.ch{padding:20px 20px 16px}.body{padding:8px 20px 24px}.part{margin-top:56px;font-size:24px}.row.dn{margin:6px -8px;padding:18px 12px}}
+
+/* checkboxes + table notes */
+th.ck,td.ck{width:56px;text-align:center;padding-left:10px;padding-right:10px}
+td.ck{font-weight:400!important;color:inherit!important}
+td.ck+td{font-weight:600;color:var(--green)}
+td.ck input,.lck{width:22px;height:22px;accent-color:var(--green);cursor:pointer;margin:0}
+td.nt{min-width:220px;width:26%}
+td.nt textarea{margin:0;min-height:60px;font-size:15px;padding:10px 12px}
+table{min-width:860px}
+tr.rdone td:not(.ck):not(.nt){color:var(--muted);text-decoration:line-through}
+li.hasck{list-style:none;display:flex;gap:14px;align-items:flex-start;margin-left:-20px}
+li.hasck>.lck{margin-top:5px;flex:none}
+li.ldone{color:var(--muted);text-decoration:line-through}
+/* wide layout, no horizontal scroll */
+.layout{max-width:1760px;grid-template-columns:320px minmax(0,1fr);gap:36px;padding-left:28px;padding-right:28px}
+nav.side{padding:16px 14px}nav.side a{padding:8px 10px;gap:10px;font-size:15px;white-space:normal}
+.hd .in{max-width:1760px}
+table{min-width:0!important;width:100%;table-layout:auto}
+.tw{overflow-x:visible}
+th,td{padding:12px 14px;overflow-wrap:anywhere}
+th.ck,td.ck{width:52px}
+td.nt{min-width:190px;width:24%}
+td.nt textarea{min-height:56px;font-size:14px;padding:8px 10px}
+table{font-size:15px}
+.det{padding-left:20px;padding-right:20px}
+
+/* access rows */
+.row.acc{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px 22px;margin:14px 0}
+.ac{display:flex;gap:14px;align-items:flex-start;padding:8px 0;line-height:1.6}
+.ac b{flex:none;min-width:64px;text-align:center;font:700 12px var(--sans);letter-spacing:.1em;text-transform:uppercase;border-radius:99px;padding:4px 12px;color:#fff;margin-top:3px}
+.ac.has b{background:var(--ok)}.ac.need b{background:var(--brown)}
+.ac span{flex:1}
+textarea{overflow:hidden;resize:none;min-height:56px}
+
+/* readable tables: no word breaking, cards when narrow */
+th,td{overflow-wrap:break-word;word-break:normal;hyphens:none}
+th{white-space:nowrap}
+@media(max-width:1180px){
+ .tw{overflow:visible;border:none;margin:16px 0}
+ table,tbody,tr,td{display:block;width:100%!important;min-width:0!important}
+ tr:has(th){display:none}
+ tr{border:1px solid var(--line);border-radius:14px;margin:0 0 20px;padding:18px 22px;background:#fff}
+ td{border:none!important;padding:12px 0!important;background:none!important;line-height:1.7}
+ td::before{content:attr(data-label);display:block;font:700 12px var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--brown);margin-bottom:5px}
+ td.ck{display:flex;align-items:center;gap:12px;padding:4px 0 12px!important;border-bottom:1px solid var(--line)!important;margin-bottom:6px}
+ td.ck::before{margin:0}
+ td.ck+td{font-size:1.05em}
+ td.nt{min-width:0;width:100%!important}
+ td.nt textarea{min-height:64px}
+}
+@media print{header.hd,nav.side,.acts,.pill{display:none}details{display:block}details>.det{display:block}}
+</style></head><body>
+<div class="topbar">Happy Healing &bull; Company Cleanup &bull; Tuesday, October 20, 2026</div>
+<header class="hd"><div class="in">
+<div class="brand">Happy Healing<small>Cleanup Review</small></div>
+<div class="stat"><div class="prog" id="prog"></div><div class="cnt" id="cnt"></div></div>
+<div class="tools"><button class="pill on" id="fAll">All</button><button class="pill" id="fOpen">Open Only</button><button class="pill" id="fFix">Fix Needed</button><button class="pill" id="fExp">Collapse All</button><button class="pill" id="fCopy">Copy Results</button><button class="pill" id="fReset">Clear</button></div>
+</div></header>
+<div class="layout">
+<nav class="side" id="nav"></nav>
+<main id="main"></main>
+</div>
+<script>
+var START_INTRO=[
+"Caroline signs in as the account owner for each system. Matt reads along and confirms each step on screen.",
+"Before removing anyone, take a screenshot of the full user list and save it to the shared Drive folder. This keeps the record for the legal hold.",
+"Remove access only. Do not delete accounts, content or data. Where a system offers Deactivate or Suspend, use that.",
+"Remove people only after Caroline says yes to each name. Add Matt first, so access is never lost.",
+"Matt's email for every invitation: matt@thehappyhealingstore.com",
+"Menu names change over time. If a login does not show the option, that person is not the owner. Note which login is, and ask that person."];
+var HOWTO="Confirmed means it was read live from the source on the date shown. Not Yet Confirmed means it is still being checked and is not promised. Use Approve, No or Later on each card to record the decision.";
+
+var D=[
+[1,"Payment Processing","amber",
+`Authorize.Net is live with 545 active subscriptions. 23 are on the older ELEX gateway renewing Oct 17 to 21. Read Oct 19.`,
+`Name the second processor. Which Authorize.Net account sits behind each store?`,
+`The plan table below lists the steps. Nothing is changed today without a yes.`,
+`<p class=b>What I Confirmed on the Live Site</p><table><tr><th>What I Found</th><th>Status</th></tr><tr><td>The site has one payment gateway turned on: Authorize.Net credit card, in live (production) mode. PayPal and WooPayments are not installed.</td><td>Confirmed</td></tr><tr><td>Two Authorize.Net gateway plugins are installed. The current one (SkyVerge, called Authorize.Net CIM) has taken every new order since September 21. The older one (ELEX) was off, and was switched back on Oct 19 for one processor (per the Oct 20 call).</td><td>Confirmed</td></tr><tr><td>There are 545 active subscriptions out of 1,618 total. 523 are on the current gateway, which stores each customer's card securely at Authorize.Net so renewals can charge later. 23 are still attached to the older, turned-off gateway. Counts move by one or two as orders process.</td><td>Confirmed</td></tr><tr><td>Those 23 subscriptions are next due to renew October 17 through October 21, January 2027 at the latest. Renewals are the part that can break when the gateway they were created on is off.</td><td>Confirmed dates. Outcome not tested</td></tr><tr><td>The current gateway has debug logging turned on. It is a leftover setting and the site shows a warning about it.</td><td>Confirmed</td></tr><tr><td>WP 2FA is installed, but 0 of the site's users have turned it on. The site has 3 administrators.</td><td>Confirmed</td></tr></table><p class=b>What I Am Still Confirming</p><table><tr><th>Open Question</th><th>Status</th></tr><tr><td>The name of the second processor and which gateway it connects to. The live site shows only one gateway turned on, so the second one is not visible there.</td><td>Not Yet Confirmed</td></tr><tr><td>Whether the processor Caroline was told may cancel is the one behind the current gateway or a new one.</td><td>Not Yet Confirmed</td></tr><tr><td>On July 3 the Fenben Inc processing account sent an Account Closure Complete notice. Caroline did not request it. Steven said he thought Venmo was the processor. Who cancelled it is not stated.</td><td>Confirmed email. Cause Not Yet Confirmed</td></tr><tr><td>Charging without fulfilling subscription orders was a high-priority fix in the June audit. It has not been re-tested.</td><td>Not Yet Confirmed</td></tr></table><p class=b>The Plan</p><table><tr><th>Step</th><th>What Happens</th><th>Who</th></tr><tr><td>1</td><td>Confirm the processor names behind both gateways, and get sandbox (test) logins for the new processor.</td><td>Caroline, Matt</td></tr><tr><td>2</td><td>On the test site, run a renewal for a subscription on each gateway. Keep the older gateway turned on for those 23 subscriptions until they are proven to renew.</td><td>Matt</td></tr><tr><td>3</td><td>If a routing rule is needed, build it on the test site only and test: new order, new subscription, renewal, refund.</td><td>Matt</td></tr><tr><td>4</td><td>You review the test results and approve. Nothing goes live before this.</td><td>Caroline</td></tr><tr><td>5</td><td>Apply the same setup to the new website before it launches.</td><td>Matt</td></tr><tr><td>6</td><td>If testing shows it is cleaner, a separate subscriptions site stays an option.</td><td>Caroline decides</td></tr></table><p>Checkout changes are tested on the dev site first. They are Matt's gate and need your approval before live. Renewals start October 17, so the test comes first.</p><p class=b>Payments, Checkout and Subscriptions (Live Plugins)</p><table><tr><th>Tool</th><th>What It Does</th><th>Status</th></tr><tr><td>WooCommerce Authorize.Net Gateway (SkyVerge)</td><td>Current card gateway.</td><td>Active. Update waiting.</td></tr><tr><td>ELEX Authorize.Net Payment Gateway</td><td>Older card gateway.</td><td>Active plugin. Gateway was off and was switched back on Oct 19 for one processor (Oct 20 call). 23 subscriptions still on it.</td></tr><tr><td>WooCommerce Subscriptions and Buy Once or Subscribe</td><td>Subscriptions.</td><td>Active. Subscriptions has an update waiting. License owner Not Yet Confirmed.</td></tr><tr><td>Avalara AvaTax and Kount Fraud Prevention</td><td>Sales tax and fraud screening.</td><td>Active. Checkout critical.</td></tr><tr><td>FluentSMTP with Postmark</td><td>Sends order and support emails from support@.</td><td>Active. Postmark is the connected mailer.</td></tr><tr><td>ShipStation (two plugins)</td><td>Shipping labels.</td><td>Official plugin and OneTeam PRO plugin both active. Check for overlap.</td></tr><tr><td>Gift Cards, Smart Coupons, Advanced Coupons</td><td>Gift cards and coupons.</td><td>Active. Check for overlap.</td></tr><tr><td>Venmo</td><td>Mentioned as a processor in July emails.</td><td>Not found in the live gateway settings.</td></tr></table>`],
+
+[2,"Google Ads","red",
+`Users re-read today. Walk the user list, then the four open invites and the old read-only login. Read Oct 20.`,
+`Yes to cancel the four open invites and the old login? Confirm the owner is management@.`,
+`1) ads.google.com, open The Happy Healing Store. 2) Tools, Setup, Access and security. 3) Remove: hover the row, Remove access, confirm. 4) Repeat for Fenben Inc and the foundation accounts if Caroline has logins.`,
+`<p class=b>Paid Media</p><table><tr><th>App</th><th>Listed In The Tools Inventory?</th><th>Access Now</th><th>What To Do</th></tr><tr><td>Google Ads, Happy Healing (111-362-6243)</td><td>Yes</td><td>Confirmed live Oct 19: 4 users. Matt and the management account are Admin, Christy is Standard, and the old caroline@happyhealinginc.com login is read-only with 2-Step Verification off. Four open invitations also show: steven@, aaron@, travis@icommstudios.com and merchantmarketingus1@gmail.com.</td><td>Keep Matt. Cancel the four open invitations and the old read-only login after you say yes. Re-read each before removal.</td></tr><tr><td>Google Ads, Fenben Inc and the foundation</td><td>Not covered</td><td>Not yet confirmed</td><td>Grant Matt admin access to ones he doesn't have.</td></tr><tr><td>Meta Business Manager, Ad Account, Pixel</td><td>Yes</td><td>Read live Oct 19: Business Manager shows Caroline, Christy and Matt. Ad account: Caroline and Matt full. Page: Caroline and Matt full, Christy partial, Blu Sparrow as partner. Outside partners are removed. No apps or Instagram profiles added.</td><td>Keep. Decide who becomes the third trusted admin.</td></tr><tr><td>ClickCease</td><td>Yes</td><td>Tied to a former team member. Not confirmed for Matt.</td><td>Move to Happy Healing ownership. Confirm coverage.</td></tr><tr><td>SpyFu</td><td>Yes</td><td>Not confirmed that an account exists</td><td>Confirm or set up a login for Matt.</td></tr></table><p class=b>Google Ads Steps</p><ul><li>Go to ads.google.com and sign in. Open the account (The Happy Healing Store).</li><li>Click Tools (wrench icon), then Setup, then Access and security.</li><li>Add Matt: click the blue plus button, enter matt@thehappyhealingstore.com, choose Admin, click Send invitation. Matt accepts it from his inbox.</li><li>Remove a person: on the Users tab, hover over their row and click Remove access (or the three dots, then Remove). Confirm.</li><li>Repeat for Fenben Inc and the foundation accounts, if Caroline has a login for them.</li></ul>`],
+
+[3,"Merchant Center","red",
+`Aaron, Steven and KC are Admins, Christy is pending, info@ is read-only, Matt is Standard. Read Oct 20.`,
+`Caroline makes Matt an Admin first. Then which of the others stay?`,
+`1) merchants.google.com, Settings, Access and services, People tab. 2) Matt: row, Edit, Admin, save. 3) Remove: row, Remove access, confirm. 4) Do not click any pet pharmacy or healthcare certification prompt.`,
+`<p class=b>Commerce And Product Feed</p><table><tr><th>App</th><th>Listed In The Tools Inventory?</th><th>Access Now</th><th>What To Do</th></tr><tr><td>Google Merchant Center (5585680438)</td><td>No, add</td><td>Read live Oct 19: Admins are Aaron, Steven, KC and the management account. Christy is a pending Admin. info@ is read-only. Matt is Standard.</td><td>Make Matt Admin first, since only an Admin can change users. Then remove Aaron, Steven, KC and info@ on your yes. All are on your Access Removal Checklist.</td></tr><tr><td>Second Merchant Center (5070324383)</td><td>No (out of scope)</td><td>No access. Legacy Fenben Inc account.</td><td>Claim it under Happy Healing or close it.</td></tr><tr><td>WooCommerce</td><td>Partial</td><td>Through the website only</td><td>Confirm Matt has marketing-level order and product data.</td></tr><tr><td>AdTribes Product Feed PRO</td><td>No, add</td><td>Previously managed by Steven. Matt now owns web changes.</td><td>Matt owns the feed copy and the technical side. Former-team access is covered in the table in item 16.</td></tr></table><p class=b>Google Merchant Center Steps</p><ul><li>Go to merchants.google.com and sign in. Open Settings (gear icon), then Access and services.</li><li>Click the People tab. Wait a few seconds for the list to load.</li><li>Make Matt an Admin: find Matt's row, click Edit (or the access dropdown), choose Admin, save. If he is not listed, click Add person, enter matt@thehappyhealingstore.com, choose Admin.</li><li>Remove a person: click their row, click Remove access, confirm.</li><li>Do not click any pet pharmacy or healthcare certification prompt while in Merchant Center.</li></ul>`],
+
+[4,"Google Analytics","amber",
+`Caroline and Matt are admins, Christy is an editor, info@ is still a Viewer. Read Oct 20.`,
+`Yes to remove info@? Who does analytics@d-enterprises.co belong to?`,
+`1) analytics.google.com, Admin (gear icon). 2) Account access management, then Property access management. 3) Remove: row, trash icon, Remove access, confirm. 4) Ask who analytics@d-enterprises.co is before removing it.`,
+`<p class=b>Analytics And Tracking</p><table><tr><th>App</th><th>Listed In The Tools Inventory?</th><th>Access Now</th><th>What To Do</th></tr><tr><td>Google Analytics (306190072)</td><td>Yes</td><td>Updated Oct 16, read live: Steven and analytics@d-enterprises.co (Fernando) are removed from the Happy Healing account and property. info@ was changed to Viewer. Steven is also removed from the Right2Try Analytics account, which now lists only Caroline, Christy and Matt as Administrators. One Google Ads account (990-853-7066) is linked to the property with restricted roles, and its owner is not yet identified. Read again Oct 19: Caroline and Matt Admin, Christy Editor. info@ is still a Viewer on the property and a Support Team user on the account. No Steven, no Aaron.</td><td>Done for Steven and Fernando. Remove info@ on your yes. Matt is shown as Administrator, read Oct 19.</td></tr><tr><td>Google Tag Manager</td><td>Yes</td><td>Updated Oct 16, read live: Steven is removed from the Tag Manager accounts. The four live accounts list only Caroline and Matt. The test account has a pending Administrator invite for caroline@happyhealinginc.com. Read again Oct 19 on all five accounts: only Caroline and Matt, both Administrator, except the unused test account, which still shows the pending invite. The 2-step verification requirement on the live account is unchecked.</td><td>The live container lists only Caroline and Matt. The [Test] tag sits in the unused test container and has sent no data in 48 hours.</td></tr><tr><td>Google Search Console</td><td>No, add</td><td>Read Oct 19: thehappyhealingstore.com has Caroline and Matt as Owners. fenbeninc.com and right2tryinc.bz need an Owner to view, so Matt cannot read them. Not Yet Confirmed.</td><td>Keep. Add to the agreement list.</td></tr><tr><td>Hotjar</td><td>No, add</td><td>Shared login under info@</td><td>Give Matt his own login.</td></tr></table><p class=b>Google Analytics Steps</p><ul><li>Go to analytics.google.com and sign in. Open Admin (gear icon, bottom left).</li><li>Choose the account, then click Account access management. Repeat the same steps under Property access management.</li><li>Add Matt: click the blue plus button, then Add users. Enter matt@thehappyhealingstore.com, select the Administrator role, click Add.</li><li>Remove a person: click their row, then the three dots or trash icon, then Remove access. Confirm.</li><li>Ask who analytics@d-enterprises.co is before removing that address.</li></ul>`],
+
+[5,"Search Console","amber",
+`Caroline and Matt own thehappyhealingstore.com. fenbeninc.com and right2tryinc.bz show owner access only. Read Oct 20.`,
+`Who should own those two domains?`,
+`1) Search Console, pick the property, Settings, Users and permissions. 2) Menu names may differ. Matt confirms on screen.`,``],
+
+[6,"Business Profile","amber",
+`Matt login shows 0 profiles. Read Oct 20.`,
+`Which login manages the profile?`,
+`1) Caroline opens the profile and checks Settings, People and access. 2) Menu names may differ. Matt confirms on screen.`,``],
+
+[7,"Tag Manager","red",
+`Only Caroline and Matt on all five accounts. One unused test account has a pending invite for the old caroline@happyhealinginc.com. Read Oct 19.`,
+`Yes to cancel that invite? What happens to the test tag?`,
+`1) tagmanager.google.com, Happy Healing Store Live, Admin. 2) Account, User management. Also check the container-level list. 3) Remove: name, Remove, confirm.`,
+`<p class=b>Google Tag Manager Steps</p><ul><li>Go to tagmanager.google.com and sign in. Open the Happy Healing Store Live account, then Admin.</li><li>Under Account, click User management.</li><li>Add Matt: click the blue plus button, then Add users. Enter matt@thehappyhealingstore.com, turn on Administrator, click Invite.</li><li>Remove a person: click their name, click Remove, confirm.</li><li>Check the container-level user list as well as the account-level one.</li></ul>`],
+
+[8,"Meta and Facebook","amber",
+`Business Manager is clean. Only Caroline can see Facebook login sessions. Read Oct 19.`,
+`Caroline checks active sessions and logs out anything unfamiliar.`,
+`1) business.facebook.com/settings, Users, People. Remove: name, Remove, confirm. 2) Partners: any outside partner still listed. Remove only if Caroline says yes. 3) Facebook sessions: Accounts Center, Password and security, Where you are logged in. Log out anything unfamiliar, then screenshot.`,
+`<p class=b>Meta Business Manager Steps</p><ul><li>Go to business.facebook.com/settings and sign in. Meta may ask for a security key. Caroline approves it.</li><li>Click Users, then People.</li><li>Matt already has full access. To add anyone later: click Add, enter the email, turn on Full control, send the invite.</li><li>Remove a person: click their name, click Remove at the top right, confirm.</li><li>Outside partners: click Users, then Partners. Select any outside partner still listed, and click Remove only if Caroline says yes.</li></ul>`],
+
+[9,"Klaviyo","amber",
+`Last week activity shows only Christy and Matt. One API key (Gravity Forms) was created by info@ and is used daily. Read Oct 19.`,
+`Yes to replace it with a key from the Caroline account before info@ is removed?`,
+`1) klaviyo.com, account name, Settings, Users. Caroline should be Owner. 2) Remove: three dots, Remove user, confirm. 3) Create the new API key from the Caroline account, update Gravity Forms, then remove info@.`,
+`<p class=b>Email, Website And Brand</p><table><tr><th>App</th><th>Listed In The Tools Inventory?</th><th>Access Now</th><th>What To Do</th></tr><tr><td>Klaviyo</td><td>Yes</td><td>Shared website login. Matt cannot open the Users page. Read Oct 19: the activity log for the last 7 days shows only Matt and Christy. The Gravity Forms key was created by info@ and is used every day.</td><td>Give Matt a dedicated Admin login. Replace the info@ key before info@ is retired.</td></tr><tr><td>WordPress and Elementor</td><td>Partial</td><td>Matt is a confirmed Administrator. Read live Oct 20: 54,709 user accounts, 50,922 of them store customers. 3 administrators. No account has two-factor on.</td><td>Done for the website users. Matt took over web and development work on October 6. Remaining WordPress cleanup is in item 11.</td></tr><tr><td>WPConsent (cookie consent)</td><td>No</td><td>Installed. Previously managed by Steven. Matt now owns web changes.</td><td>Keep or replace is a launch decision (see item 13).</td></tr><tr><td>Google Business Profile</td><td>No, add</td><td>Read Oct 19: the Matt login manages 0 businesses, so the listing is managed from another login. Not read.</td><td>Caroline confirms which login owns it, then add Matt.</td></tr><tr><td>Instagram and Facebook</td><td>Facebook: Yes (via Meta). Instagram: No, add</td><td>Facebook through Meta. Instagram not granted.</td><td>Add Matt to Instagram.</td></tr><tr><td>Trustpilot and BBB</td><td>No, add</td><td>Not granted</td><td>Add Matt for review and complaint responses.</td></tr></table><p class=b>Klaviyo Steps</p><ul><li>Go to klaviyo.com and sign in. Click the account name (bottom left), then Settings, then Users. Caroline should be the Owner.</li><li>Add Matt: click Invite user, enter matt@thehappyhealingstore.com, choose Admin (or Owner), send. Matt accepts the invitation.</li><li>Once Matt is Admin, he reads the full user list and sends Caroline the names to review.</li><li>Remove a person: click the three dots beside their name, choose Remove user, confirm.</li></ul>`],
+
+[10,"Monday","red",
+`Steven is still active and Aaron is still Admin. Sign-in loop today, so read Oct 19.`,
+`Yes to remove both? Match each account to an email.`,
+`1) thehappyhealingstore-squad.monday.com, profile picture, Administration, Users. 2) Tick the name, Deactivate. Never Delete. 3) Matt is a member and cannot deactivate, so Caroline or another Admin does it.`,
+`<p class=b>Collaboration, Credentials And Out Of Scope</p><table><tr><th>App</th><th>Listed In The Tools Inventory?</th><th>Access Now</th><th>What To Do</th></tr><tr><td>Slack (Current Account)</td><td>Yes</td><td>Matt and Caroline are the only admins</td><td>Create a new Slack account.</td></tr><tr><td>Google Workspace</td><td>Collaboration only</td><td>Collaboration access only. The Admin console and device activity ask for a passkey, so users, devices and sign-in activity are Not Yet Confirmed.</td><td>See item 12. The agreement keeps the marketing role out of super admin.</td></tr><tr><td>Password manager (1Password)</td><td>No, add</td><td>Matt has user access</td><td>Keep access through the rebuilt shared vault.</td></tr><tr><td>Amazon Seller Central and Ads</td><td>No (excluded)</td><td>Not granted. Excluded in the agreement.</td><td>Leave alone unless separately agreed.</td></tr><tr><td>Shopify</td><td>No (legacy)</td><td>Legacy</td><td>Do not touch.</td></tr></table><p class=b>Monday Steps</p><ul><li>Go to thehappyhealingstore-squad.monday.com and sign in. Click the profile picture (top right), then Administration, then Users.</li><li>Make Matt an Admin: tick the box beside Matt, click Change role, choose Admin.</li><li>Remove a person: tick the box beside their name and choose Deactivate. Deactivate keeps their history. Do not choose Delete.</li><li>Still listed as active (read Oct 16): Aaron (Admin), Steven (last active Oct 12), KC, Tracey, Maddie, Todd and Vonn. Aaron and Steven are on your Access Removal Checklist. Caroline says yes or no to each. Read again Oct 19: unchanged. Steven is still active and Aaron is still Admin. Matt is a member and cannot deactivate users, so Caroline or another Admin does it.</li></ul>`],
+
+[11,"WordPress and WP Engine","red",
+`3 administrators. No account uses 2FA (54,709 accounts, 50,922 are store customers). Steven and Aaron accounts exist with no role. Tracey last signed in April 13. Read Oct 19.`,
+`Yes to turn on 2FA for admins? Does Tracey still need admin?`,
+`1) thehappyhealingstore.com/wp-admin, Users, All Users. 2) Remove: Edit, Role to Subscriber or No role. Never Delete. 3) New password for accounts that stay. Turn on two-factor for every administrator. 4) WP Engine: my.wpengine.com, Users. Confirm the billing owner is Caroline or a company address.`,
+`<p class=b>Website, Security and Tracking (Live Plugins)</p><table><tr><th>Tool</th><th>What It Does</th><th>Status</th></tr><tr><td>Elementor, Elementor Pro, Essential Addons, Unlimited Elements</td><td>Page building.</td><td>Active. All four have updates waiting. Two Elementor accounts, you have neither login.</td></tr><tr><td>Wordfence, Patchstack, Limit Login Attempts Reloaded, WP Activity Log, WP 2FA</td><td>Security.</td><td>Active. Overlap. Which are paid Not Yet Confirmed.</td></tr><tr><td>WP File Manager and WPCode Lite</td><td>File access and code snippets inside the dashboard.</td><td>Active. Review whether both are needed.</td></tr><tr><td>Custom GA4 plugin and Trademark Geo Filter</td><td>Tracking and geo rules.</td><td>Active. Both are listed as built by iComm.</td></tr><tr><td>Meta for WooCommerce, Product Feed PRO</td><td>Facebook feed and product feeds.</td><td>Active. Updates waiting on Product Feed PRO.</td></tr><tr><td>Google for WooCommerce, Pixel Tag Manager</td><td>Google feed and pixel tags.</td><td>Installed but turned off.</td></tr><tr><td>Gravity Forms and Gravity Forms for Klaviyo</td><td>Forms feeding Klaviyo.</td><td>Active. Gravity Forms has an update waiting.</td></tr><tr><td>Klaviyo</td><td>Email and SMS.</td><td>Active. Main email platform.</td></tr><tr><td>26 plugins have updates waiting (checked October 15; it was 20 on October 8)</td><td>Includes the Authorize.Net gateway, Subscriptions, Elementor and Yoast.</td><td>Yes, update them, in stages: back up, test on the dev site, update low-risk plugins first. Update checkout and subscription plugins only after testing, before the Oct 17 to 21 renewals.</td></tr></table><p class=b>WordPress (Site Administrators)</p><ul><li>Go to thehappyhealingstore.com/wp-admin and sign in.</li><li>Click Users, then All Users.</li><li>Add or promote Matt: if listed, hover over his name, click Edit, set Role to Administrator, click Update User. If not listed, click Add New User and use matt@thehappyhealingstore.com.</li><li>Remove a person: click Edit, then change Role to Subscriber (or No role for this site). Do not click Delete.</li><li>Set a new password for any account that stays, and turn on two-factor sign-in for every Administrator. The plugin is installed with no users turned on. Read live Oct 20: 54,709 user accounts, 50,922 of them store customers, and none have two-factor on. Only the 3 administrators and staff need it.</li></ul><p class=b>WP Engine (Hosting)</p><ul><li>Go to my.wpengine.com and sign in. Click Users (account level).</li><li>Add Matt: click Invite user, enter matt@thehappyhealingstore.com, choose the Full or Owner role, send.</li><li>Remove a person: click the three dots beside their name, choose Remove, confirm.</li><li>Confirm the billing owner is Caroline or a company address.</li></ul>`],
+
+[12,"Google Workspace","gray",
+`I cannot read this. The Admin console needs the Caroline passkey.`,
+`Caroline reads users and devices. Which role does Matt take?`,
+`1) admin.google.com as super admin, Directory, Users. 2) Matt: Admin roles and privileges, Super Admin or User Management Admin. 3) Former team: Suspend user, never delete. 4) Hand the shared inboxes (info@, support@, orders@) to a current person before suspending anyone.`,
+`<p class=b>Google Workspace (Company Email) Steps</p><ul><li>Go to admin.google.com and sign in as the super admin.</li><li>Click Directory, then Users.</li><li>Make Matt an admin: open Matt's user, click Admin roles and privileges, assign Super Admin or User Management Admin.</li><li>Former team members: open the user, click Suspend user. Do not delete. Their mail and files stay available.</li><li>Hand the shared inboxes (info@, support@, orders@) to a current person before suspending anyone.</li></ul>`],
+
+[13,"Cloudflare and GitHub","amber",
+`New site accounts, read Oct 19.`,
+`Confirm the owner is management@. Complete the account register (Exhibit C).`,
+`Details in the table below.`,
+`<p>The new site runs on Cloudflare and GitHub. Both should belong to Happy Healing before launch, not to a contractor.</p><table><tr><th>Item</th><th>Status</th><th>What I Need</th></tr><tr><td>Account register (Exhibit C of the website agreement)</td><td>Must be filled in before anyone touches a Happy Healing account.</td><td>List every account and owner. Written confirmation from you.</td></tr><tr><td>Cloudflare (hosting for the new site)</td><td>The test site sits under a Happy Healing email Matt created. Paid plan is about 5 dollars a month plus usage, pending your approval.</td><td>Your approval, then the production account in Happy Healing's name.</td></tr><tr><td>GitHub (site code)</td><td>Cost not confirmed</td><td>Owned by Happy Healing. You decide who gets access.</td></tr><tr><td>WP Engine (current site)</td><td>Stays live until launch and for rollback</td><td>Keep paying until the new site is stable.</td></tr><tr><td>UserWay (accessibility widget)</td><td>On the test site. Yearly cost not confirmed.</td><td>Confirm the plan and billing owner.</td></tr><tr><td>Domain and DNS (GoDaddy)</td><td>Controls the launch switch</td><td>Matt delegated access before launch day.</td></tr></table>`],
+
+[14,"Zendesk, Zapier, 1Password","gray",
+`Not read yet.`,
+`Who has access to each?`,
+`1) Zendesk: Admin Center, People, Team members. Suspend, not delete. 2) Zapier: Settings, Members. Move any Zap off a personal connection first. 3) 1Password: People, then Vaults, Manage access. Change shared passwords former team could see.`,
+`<p>Plugin rows were read from the live site on October 8. Owner, cost and billing login are Not Yet Confirmed unless stated. The next step is to match each one to a card charge.</p><p class=b>Tools You Named</p><table><tr><th>Tool</th><th>What It Does</th><th>Status</th></tr><tr><td>ClickCease (now CHEQ)</td><td>Blocks fake ad clicks. ClickCease and Cheq are the same company.</td><td>Plugin is active on the live site. Owner and cost Not Yet Confirmed.</td></tr><tr><td>Podcast software</td><td>Set up by KC.</td><td>Not found anywhere yet. Ask KC through Christy.</td></tr><tr><td>Monday (2 accounts)</td><td>Task tracking.</td><td>Second account Not Yet Confirmed. Both owners and cost needed.</td></tr><tr><td>Fenben Inc Google Ads</td><td>Ad account set up by Isaac. You are still being charged.</td><td>Admin and billing owner Not Yet Confirmed.</td></tr></table><p class=b>Not Visible From the Site (From June and July Tabs)</p><table><tr><th>Tool</th><th>What It Does</th><th>Status</th></tr><tr><td>WP Engine, Cloudflare, GoDaddy</td><td>Hosting, security layer, domain.</td><td>Billing owners Not Yet Confirmed. Two DMARC records noted in July.</td></tr><tr><td>Zendesk and Numberbarn</td><td>Support and phone voicemail.</td><td>Not re-checked. Domain change needed a subscription upgrade in July.</td></tr><tr><td>Google Workspace, 1Password, Zapier</td><td>Chat, email, shared logins, automations.</td><td>Not re-checked.</td></tr><tr><td>ZeroBounce, Encharge, SE Ranking, SpyFu, Hotjar</td><td>Email cleaning, old email platform, rankings, recordings.</td><td>Not re-checked. Hotjar is not a plugin on the site.</td></tr><tr><td>Semrush, Substack, Apple Business Connect</td><td>Audit tool, newsletter, map listing.</td><td>Not re-checked.</td></tr></table><p class=b>Zendesk Steps</p><ul><li>Go to the Zendesk Admin Center (gear icon in the sidebar), then People, then Team, then Team members.</li><li>Add Matt: click Add team member, enter matt@thehappyhealingstore.com, choose Admin, send the invite.</li><li>Remove a person: open their profile, choose Suspend (or Remove), confirm.</li><li>Not yet read live. Matt confirms who is listed while Caroline is signed in.</li></ul><p class=b>Zapier Steps</p><ul><li>Go to zapier.com and sign in. Open Settings, then Members.</li><li>Add Matt: click Invite, enter matt@thehappyhealingstore.com, choose Admin.</li><li>Remove a person: click the three dots beside their name, choose Remove.</li><li>Before removing anyone, check that no Zap runs under their personal connection. Transfer the Zap to a company login first.</li><li>Not yet read live.</li></ul><p class=b>1Password Steps</p><ul><li>Go to the company 1Password page and sign in as an owner or administrator. Click People.</li><li>Add Matt: click Invite People, enter matt@thehappyhealingstore.com, then give the Administrator role under Roles.</li><li>Remove a person: click their name, choose Suspend or Remove, confirm.</li><li>Then click Vaults, open each shared vault, click Manage access, and remove former team members.</li><li>Change any shared password a former team member could see, starting with the shared inboxes and the website logins.</li></ul>`],
+
+[15,"Alert Overload","amber",
+`Walk the proposed owners and the weekly yes or no list.`,
+`Yes or no on each proposed owner?`,
+`Details in the tables below.`,
+`<p>Added October 14, 2026. Source: Caroline's October 11 email and Tracey's October 12 reply.</p><p class=b>What Caroline Asked</p><ul><li>Volume: About 20 vendor and security emails a day reach Caroline about things to update, secure or fix across the websites.</li><li>Example 1: WP Engine security notice about the WP 2FA plugin (October 8).</li><li>Example 2: FedEx now needs specific tables, headers and fields on every international commercial invoice, or shipments stop.</li><li>Example 3: Sales tax compliance keeps changing and Tracey is carrying it.</li><li>Other tools with recurring to-dos: Google, Kount, ShipStation, FedEx, Elementor Pro, Patchstack, ClickCease, Cheq, Hotjar, Jetpack.</li><li>Her questions: Do updates get tested on staging first? Who can understand and handle all of these? Any suggestions for managing them?</li></ul><p class=b>The WP Engine Notice (WP 2FA Plugin)</p><table><tr><th>What I Found</th><th>Detail</th><th>Status</th></tr><tr><td>Sites listed</td><td>Four sites on version 4.1.0: fenbenincstg, fenbenincdev and happyhealingco (all in the happyhealingco account), and happyhealing (in the FbFoundation account).</td><td>Confirmed, from the WP Engine email</td></tr><tr><td>The risk</td><td>Patchstack lists a cross-site request forgery issue. It needs a logged-in admin to click a bad link. Patchstack rates it low risk. The fix is plugin version 4.2.0.</td><td>Confirmed, from the Patchstack page</td></tr><tr><td>Live store version</td><td>The store's plugin readme still shows 4.1.0, so the update has probably not been applied.</td><td>Strong indicator. Checked live October 8: 3 administrators, two-factor plugin installed, 0 users turned on</td></tr><tr><td>Staging and dev</td><td>The names fenbenincstg and fenbenincdev suggest staging and dev copies.</td><td>Not Yet Confirmed</td></tr><tr><td>Who applies the update</td><td>Matt, on staging first, then live, after a backup.</td><td>Planned</td></tr></table><p class=b>Proposed Ways To Cut The Noise</p><ul><li>Automatic updates: WP Engine's Smart Plugin Manager backs up first, can test on staging, and rolls back if something breaks. It is included on some plans and an add-on on others. Cost on the WP Engine plan: Not Yet Confirmed.</li><li>Patchstack: Already paid for. Its site says it can auto-update vulnerable plugins only. Whether the WP Engine plan includes this: Not Yet Confirmed.</li><li>One weekly yes or no list: Anything that still needs a person comes to Caroline as a single weekly list, in the format she asked for on August 20. Everything else is handled without her.</li><li>Fewer alerts to Caroline: These notices go to management@ and reach her by forward. Proposed: route them to a shared inbox that Matt and Christy watch.</li></ul><p class=b>Who Owns What (Proposed)</p><table><tr><th>Area</th><th>Owner</th><th>Notes</th></tr><tr><td>FedEx commercial invoice changes</td><td>Tracey</td><td>Tracey offered to take this on October 12 and work out what is needed.</td></tr><tr><td>Sales tax</td><td>Tracey</td><td>Already hers.</td></tr><tr><td>Subscription and renewal list</td><td>Tracey</td><td>Tracey started a list of what Happy Healing pays and when it renews. Suggest adding an owner column.</td></tr><tr><td>ClickCease, Hotjar, Google Ads and Analytics</td><td>Matt</td><td>Tracey suggested the marketing tools sit with Matt and Christy.</td></tr><tr><td>Cheq</td><td>Matt to look into</td><td>See the note below.</td></tr><tr><td>ShipStation, Kount, day-to-day orders</td><td>Christy or Tracey</td><td>Proposed only. Not assigned yet.</td></tr><tr><td>WP Engine, WordPress and plugin updates, Elementor Pro, Jetpack</td><td>Matt</td><td>Matt took over web and dev work on October 6.</td></tr></table><p class=b>About Cheq</p><p>Cheq is an ad-fraud and bot-traffic protection company. It bought ClickCease in September 2020, so the two tools may do the same job. Not confirmed that Happy Healing pays for both. Tracey's subscription list should show Cheq's cost and start date, which will answer whether to keep it.</p><p class=b>Open Items</p><ul><li>Smart Plugin Manager: Price and coverage on the WP Engine plan.</li><li>Patchstack: Whether the WP Engine plan includes auto-updates.</li><li>Sites: Confirm which of the four listed sites are Happy Healing's, since one sits in a separate account.</li><li>FedEx: Tracey is reviewing the invoice requirements.</li><li>Subscription list: Tracey to add an owner column.</li><li>Cheq: Cost, start date, and whether it overlaps with ClickCease.</li></ul>`]
+];
+
+var R=[
+[16,"Former Team Accounts And Shared Logins",
+`<table><tr><th>Item</th><th>What I Found</th><th>Next Step</th></tr><tr><td>Website administrators</td><td>Confirmed live: 3 administrators (Caroline's management account, Matt, Tracey). Steven and Aaron do not appear as administrators or shop managers. Read again Oct 19: the Tracey administrator account was last used April 13. Steven last signed in Sep 26 and Aaron Jul 22, 2025, and both accounts still exist with no role.</td><td>Done for the roles. Decide whether to lock or remove the Steven and Aaron accounts after a saved copy. Confirm Tracey still needs administrator access.</td></tr><tr><td>Shop managers</td><td>Confirmed live: Christy, Kiera, Maddie, Todd and Vonn. Last sign-ins read Oct 19: Maddie and Vonn July 2025, Kiera June 9, Todd August 3.</td><td>Confirm each still needs access.</td></tr><tr><td>Two-factor sign-in</td><td>Confirmed live Oct 20: plugin installed. 54,709 user accounts, 50,922 of them store customers. None have two-factor or a passkey on, including all 3 administrators.</td><td>Turn on for all administrators this week. Matt walks you and Christy through it.</td></tr><tr><td>Isaac Prentice</td><td>Set up the Fenben Inc Google Ads and a second tag container (July tabs).</td><td>Check his live role. Reduce to least access.</td></tr><tr><td>KC</td><td>Substack, podcast software, notetaker integration (June and July tabs).</td><td>Christy lists everything KC started. You decide keep or close.</td></tr><tr><td>Shared inboxes</td><td>info@, support@, orders@ and others sit in 1Password (July tab).</td><td>Assign each to a current person.</td></tr><tr><td>Meta receipts</td><td>Receipts for other businesses are arriving in the company inbox.</td><td>Find the source and the card.</td></tr><tr><td>CouponBirds coupon</td><td>Confirmed live: no coupon with that name or the $0.69 deal exists. 12 coupons are listed and the trash is empty. When and how it was removed is not recorded.</td><td>Treat as gone. Note the missing record.</td></tr><tr><td>Klaviyo API keys</td><td>Read live Oct 19: the Gravity Forms key was created by info@ on Feb 21, 2025 and is used every day. A Zendesk key and an Adspirer key made by Matt are also listed.</td><td>Make a replacement key under the Caroline account, switch the form over, then retire the info@ key.</td></tr><tr><td>Right2Try mail forwarding</td><td>From the Right2Try logs: webteam@ mail was forwarded to steven@ from May 22.</td><td>Workspace admin checks the forwarding rule, last sign-in and suspension on that mailbox.</td></tr><tr><td>Facebook login sessions</td><td>Only Caroline can see them. Not read.</td><td>Caroline sends a screenshot of Accounts Center, Password and security, Where you are logged in. Anything unfamiliar is logged out first.</td></tr><tr><td>Google Workspace users and devices</td><td>Admin console and device activity ask for a passkey on the Matt side. Not read.</td><td>Caroline or Matt at the keyboard reads users, devices and sign-in activity together.</td></tr></table><p>Every tool the marketing work depends on, grouped by type and checked against what is live (access lists read October 16, live site read October 8). Nothing is changed until you say yes. Rows marked Oct 19 were re-read live that day.</p>`],
+
+[17,"Access Removal Checklist",
+`<p>Added From Caroline's Access Removal Checklist</p><p class=b>Source: Access Removal Checklist, October 16, 2026. Status is as recorded in the checklist on October 14. This report adds only what the sections above did not cover.</p><table><tr><th>Item</th><th>What the Access Removal Checklist Adds</th><th>Status Per Checklist (Oct 14)</th></tr><tr><td>Why Suspended Is Not Done</td><td>Access runs through four layers: own accounts, shared mailboxes they operated, grants and licenses issued under them, and code-level access. Each layer is closed separately.</td><td>Applies to every row in this section.</td></tr><tr><td>Other Google Workspaces</td><td>Fenben Inc, the Foundation and Right2Try each need the same steps: suspend, reset the password and sign-in cookies, remove passkeys and connected apps, confirm no admin role.</td><td>Foundation: de-privileged only. Fenben Inc: not started.</td></tr><tr><td>Shared Mailboxes</td><td>info@, support@, alerts@, webteam@, admin@ and management@ each need a full reset: password, sign-in cookies, apps, recovery contacts, forwarding and delegates.</td><td>Partial. Billing moved off info@ in September.</td></tr><tr><td>Vendor Accounts, Licenses and Keys</td><td>Elementor Pro, ShipStation, ClickCease, Gravity Forms, Patchstack, Unlimited Elements, Hotjar, SMTP and WooCommerce.com: move each to a Happy Healing email and rotate API and license keys.</td><td>Partial. Ties to the owner column in item 15.</td></tr><tr><td>Authorize.Net</td><td>Remove former team members from the user list, rotate the transaction and signature keys, and review the two webhooks that point to an unrecognized URL.</td><td>Not recorded. Checkout is Matt's gate, so this is coordinated with the payment test plan.</td></tr><tr><td>Deploy Pipeline</td><td>A Bitbucket deploy pipeline and a hidden administrator user on the live site re-granted themselves access after being demoted. WP Engine support has to identify and close it.</td><td>Open. No record that it was closed.</td></tr><tr><td>WordPress, Deeper Cleanup</td><td>Users across all nine WP Engine environments plus the Foundation and old Right2Try sites, application passwords, active sessions, code snippets, custom plugins and must-use plugins.</td><td>Not done across environments.</td></tr><tr><td>Domains and DNS</td><td>IONOS, Namecheap and GoDaddy: remove former team members as contacts, rotate API tokens, confirm the registrant and recovery email are Caroline's.</td><td>Not started.</td></tr><tr><td>Authenticator Codes</td><td>Codes for company accounts sit on a former team member's phone. Re-enroll each on a company device before that phone is reset.</td><td>Not started. Due October 19. Date passed. Status Not Yet Confirmed, ask in the meeting.</td></tr><tr><td>Logs</td><td>Export Google, WordPress, WP Engine, 1Password, Slack and DocuSign logs before changes. Google keeps about six months.</td><td>In progress.</td></tr><tr><td>Company Property</td><td>The company laptop and the transition exhibits are due October 19. Nothing is wiped until Tracey confirms receipt in writing.</td><td>Due October 19.</td></tr><tr><td>Matt's Access (Checklist Item 16)</td><td>Matt was given a former team member's Google password. Confirm Matt's access sits only on his own named accounts, and that any session started under the other login is ended by the sign-in cookie reset.</td><td>Open. Confirm with Caroline.</td></tr><tr><td>Cloudflare and EmDash (Checklist Item 23)</td><td>Confirm the former team members have no account, API token or DNS access to the new website's Cloudflare setup.</td><td>Open. Matt confirms, Caroline signs off.</td></tr><tr><td>Sign-Off Table</td><td>Each phase, for each person, gets a Status, Proof, Date and initials. Caroline signs off only when every row reads Done with proof, or N/A with a reason. Rows include: Exhibit A reconciled, laptop returned and imaged, sworn deletion of data and AI accounts, and Drive and Calendar ownership transferred.</td><td>Exhibit A and laptop are due Oct 19. Final sign-off not started. Date passed, status Not Yet Confirmed.</td></tr><tr><td>Code Snippets and Custom Plugins</td><td>The main site has 28 code snippets (plus 6 in Trash) and several custom plugins. Each is read and attributed before anything is deleted, and the code is copied out first. Highest concern: a snippet that hides the admin password-change alert, one named wp audit fix, one created the day before the Sept 26 incident, and checkout and payment-gateway test snippets in Trash. WP File Manager is flagged for removal.</td><td>Not started.</td></tr><tr><td>Other WordPress Sites</td><td>Fenben (5 snippets) and Right2Try (4, plus 5 in Trash) get the same review. The hidden login URL on both needs to change. The Foundation WordPress site has not been inventoried, and Steven and Aaron are still to be removed there. Decide whether the old Right2Try site should still exist.</td><td>Open.</td></tr><tr><td>Evidence To Save First</td><td>Before anything is deleted: a full backup of all nine environments, the WP Activity Log export (2025 to today), WP Engine server logs (30 to 90 day retention, 12 months requested through support), and revision history for product and draft pages. Confirm the Meta pixel snippets use the company Meta pixel.</td><td>Logs: in progress.</td></tr><tr><td>Pending Invite For caroline@happyhealinginc.com</td><td>A pending invite for this old address is still open. Caroline already has full access through management@thehappyhealingstore.com. Decision (Matt, Oct 16): cancel the invite. Caroline to confirm. Read again Oct 19: the invite still shows pending on the unused test account in Tag Manager, so the cancel is not complete. Matt cancels it after saving a screenshot.</td><td>Cancel Approved By Matt</td></tr><tr><td>Google Ads Account 990-853-7066</td><td>Read Oct 16: this account does not appear in the Google Ads login Matt uses (only 111-362-6243 is listed), and it is linked to Google Analytics. I cannot see who owns it. This is a Google Ads account number, and the account name is not visible to me. Caroline, please confirm whether it is yours, and if not, who set it up.</td><td>Owner Not Visible</td></tr><tr><td>Tag Manager Permissions And [Test] Tag</td><td>Read Oct 16: the live container (GTM-52LFW58Z) has two users, Caroline and Matt, both Publish. Steven is not on it. The [Test] Google tag (G-NXHCBLE0QQ, GT-M6QM3CRP) sits in the Unused Test container and has not sent data in 48 hours. The other containers have not been read yet. Nothing is deleted without Caroline's yes and a saved copy first.</td><td>Read Oct 16</td></tr><tr><td>Chrome Management, Groups, And Vault Hold</td><td>Aaron pushed Chrome policies and extensions to all staff. Review and remove every policy, extension and enrollment he created (Admin, Devices, Chrome). Record every Google Group, check Owner and Manager roles, then remove him. Confirm a Vault hold is on all four of his mailboxes and Drives before any suspension.</td><td>Open (Part A, items 3, 15, 17, 25)</td></tr><tr><td>Third-Party App Grants</td><td>Grants tied to Aaron: Squarespace, Expedia, Metricool, LeadConnector, xAI, ZeroBounce, ClickCease, Semrush and two AI tool sign-ins (May 27 and 29, 2026). Confirm no company domain, site, list or data sits in any of them, delete customer lists uploaded to ZeroBounce, and identify app ID 980588508252 (block it organization-wide if no one recognizes it).</td><td>Open (Part A, items 19, 21, 33)</td></tr><tr><td>Elementor Revision History And Hidden Pages</td><td>Pull the Dec 2, 2025 Omega Three revision, the hidden "Heal Navigator" page and the reactivated archived page. I save a copy first and change nothing.</td><td>Open (Part E, item 9; Part A, item 51)</td></tr><tr><td>WordPress Login URL And Server Files</td><td>WPS Hide Login is active on Fenben and Right2Try: record the hidden login URL, then change it. Also check mu-plugins, wp-config and the Bitbucket collaborator list. No record shows the Bitbucket pipeline was ever closed.</td><td>Open (Part E, item 3; Part A, items 46, 59)</td></tr><tr><td>Code Snippets To Read First</td><td>Read these before anything else: "Stop admin password change notification emails" (HHS, Jun 11), "Force https for PHPSESSID Cookie" (HHS, Sept 25, the day before the incident), and the trashed checkout log and test gateway snippets. I read and save a copy. Nothing is edited or deleted.</td><td>Open (Part E, snippets)</td></tr><tr><td>Plugin Flags From The Checklist</td><td>Duplicate order export plugins (keep one), Redirection (check every redirect), Serial Codes Generator, three ShipStation plugins (keep one), two Authorize.Net gateways, overlapping Wordfence, Patchstack and Limit Login Attempts, SVG Support (blank author field), and the paid-license list including Beaver Builder (expired). Record who each license is registered to.</td><td>Open (Part E, plugins)</td></tr><tr><td>Meta Pixel Ownership In Snippets</td><td>Two snippets, "Meta facebook Tag" and "Meta for WooCommerce ViewContent," must use a Pixel ID that sits in the company Meta portfolio, not Matt's or BluSparrow's. I read both snippets and confirm the ID matches.</td><td>Open (Part E, snippets)</td></tr><tr><td>Authenticator Codes And Phones</td><td>An Authenticator enrollment on management@ was found that Caroline never set up. Steven's iPhone also holds codes for company accounts. Move every code to company-owned devices before his laptop and phone are reset.</td><td>Not started (Part B, items 15, 17)</td></tr><tr><td>Google Ads Customer IDs And iComm</td><td>Two unknown customer IDs show on the Amex statements (584110309&hellip; and 111362624&hellip;). The second may be the Happy Healing account, 111-362-6243. Identify which email owns each. Also remove the icommstudios.com trusted-domain grant, the Info@icommstudios.com access added Aug 6, 2025, and the Tag Manager link to iComm (Travis).</td><td>Open (Part A, items 27, 28; Part B, item 20)</td></tr><tr><td>Social And Ad Platform Admins</td><td>Check every admin on Meta Business Manager, Instagram, YouTube, X, LinkedIn Page and Campaign Manager (including the LinkedIn admin concern involving KC), Pinterest, TikTok, Microsoft Advertising, Clarity and Bing Webmaster.</td><td>Open (Part A, item 40, 42; Part B, items 28, 29)</td></tr><tr><td>Laptop And Exhibit A</td><td>Steven's company HP laptop and his Exhibit A (every platform, login, role and MFA method) are due Monday, Oct 19. I reconcile Exhibit A against this list. Nothing on the laptop is wiped or reset until Tracey confirms receipt in writing.</td><td>Due Oct 19 (Part B, items 31, 41) Date passed, status Not Yet Confirmed.</td></tr><tr><td>Log Pulls And Retention</td><td>Export user, OAuth, Drive, Gmail, Admin and Groups log events for each man in each tenant, Jan 1, 2026 to today. Retention is about six months, so this goes first. Also preserve WP Engine raw server logs (30 to 90 day retention) and the DocuSign activity report, including the 8 unresolved envelopes.</td><td>Open (Part C; Part A, item 5)</td></tr></table>`],
+
+[18,"Data Handling",
+`<p class=b>Data Handling, Shared Logins, And Connections To Protect</p><p>Carried over from the earlier access tabs, now retired. Nothing changes until Caroline says yes.</p><table><tr><th>Item</th><th>What To Do</th></tr><tr><td>Data Minimization</td><td>Each tool receives only the customer data it needs. Customer identifiers sent to Meta and Google are hashed, and consent and Ads Data Redaction are honored.</td></tr><tr><td>Retention Windows</td><td>Set and record how long customer data is kept in WooCommerce, GA4 and Klaviyo.</td></tr><tr><td>Named Logins</td><td>Every tool gets a named login for each person who uses it. No shared passwords for anything that touches payments, refunds or customer data.</td></tr><tr><td>Connections Not To Break</td><td>Authorize.Net, Avalara, Kount and Postmark have no fallback. Each is changed only after a test on the dev site. Postmark sends from support@thehappyhealingstore.com, read in FluentSMTP, Connections on October 16.</td></tr><tr><td>Meta Login On A Personal Email</td><td>One Meta login sits on a personal iCloud address. Move it to a company address. Caroline asked that her own Meta access stay where it is, so confirm the approach first.</td></tr><tr><td>info@ Shared Mailbox</td><td>Reduce its use as a login for tools. Assign each tool a named owner, then retire info@ as a sign-in address. Read Oct 19: info@ is still a Viewer on the GA4 property, read-only in Merchant Center, a Support Team user on the GA4 account, and the creator of the Klaviyo Gravity Forms key.</td></tr><tr><td>Klaviyo Login</td><td>Christy can manage the shared login. Matt gets his own Admin login.</td></tr><tr><td>Slack</td><td>Last audit showed 26 members and two without two-factor sign-in. Not re-read this week.</td></tr><tr><td>Safe Order For A Full Lockdown</td><td>Recovery emails, then user-set recovery options, then force sign-out and reset sign-in cookies, then passwords, then connected apps, then aliases, then two-factor sign-in, then Drive file ownership, then fewer super admins, then external sharing limits, then read back every result.</td></tr></table>`],
+
+[19,"What Happens Next",
+`<table><tr><th>When</th><th>What</th></tr><tr><td>This Week</td><td>Test a renewal on both gateways on the dev site, before the October 17 to 21 renewals. Match each tool to a charge and a billing page.</td></tr><tr><td>Tuesday, October 20</td><td>Review the report together, one item at a time. You say keep, move to the company name, or cancel.</td></tr><tr><td>After Approval</td><td>Move kept items to the Happy Healing name. Cancel the rest. Confirm each end state live.</td></tr><tr><td>New Website Launch</td><td>List every old connection it removes so nothing keeps billing.</td></tr><tr><td>Every Monday, 8 AM CT</td><td>Weekly access check on every platform, same list, one short result sent to you.</td></tr></table>`],
+[20,"What Matt Needs Access To (New Site, Admin And Marketing)",
+`<p class=b>New Site: Build, Hosting And Launch</p><table><tr><th>System</th><th>Matt Has Now</th><th>Matt Needs</th><th>Used For</th><th>Who Grants</th></tr><tr><td>Cloudflare (new site hosting)</td><td>Test site only, under a Happy Healing email Matt created</td><td>Admin on the production account in Happy Healing's name</td><td>Deploy, edit and roll back the new site</td><td>Caroline approves the plan (about 5 dollars a month plus usage)</td></tr><tr><td>Domain and DNS (GoDaddy)</td><td>Not Yet Confirmed</td><td>Delegated access before launch day</td><td>The launch switch: point the domain to the new site</td><td>Caroline</td></tr><tr><td>EmDash CMS (new site content)</td><td>Test site</td><td>Admin</td><td>Edit pages, products content, blog and SEO fields</td><td>Matt, on the Cloudflare account</td></tr><tr><td>Code repository for the new site</td><td>Not Yet Confirmed</td><td>Owner or Admin in a company-owned account</td><td>Version history and safe changes</td><td>Caroline confirms the owner account</td></tr><tr><td>WP Engine (current site hosting)</td><td>Not Yet Confirmed</td><td>User invite to matt@thehappyhealingstore.com</td><td>Backups, staging and the old site until launch</td><td>Caroline</td></tr><tr><td>WordPress and WooCommerce (current site)</td><td>Administrator confirmed. WooCommerce settings, REST API keys and webhooks open live Oct 20</td><td>Nothing more. Keep</td><td>Fixes now, order and product data for reports</td><td>Done</td></tr><tr><td>Authorize.Net (checkout)</td><td>Not Yet Confirmed</td><td>Admin or test access to the processor</td><td>Checkout stays on WooCommerce hosted flow, so the gateway must be tested before launch</td><td>Caroline. Checkout is Matt's gate</td></tr></table><p class=b>Marketing And Measurement</p><table><tr><th>System</th><th>Matt Has Now</th><th>Matt Needs</th><th>Used For</th><th>Who Grants</th></tr><tr><td>Google Analytics (306190072)</td><td>Administrator</td><td>Keep. Add the new site as a data stream</td><td>Reports and conversion tracking on the new site</td><td>Done</td></tr><tr><td>Google Tag Manager</td><td>Publish, with Caroline</td><td>Keep. Add the new site container</td><td>Pixels and tags on the new site</td><td>Done</td></tr><tr><td>Google Search Console</td><td>Owner on thehappyhealingstore.com</td><td>Owner on fenbeninc.com and right2tryinc.bz. Add the new site property</td><td>Indexing, redirects and ranking after launch</td><td>Caroline</td></tr><tr><td>Google Ads (111-362-6243)</td><td>Admin</td><td>Keep. Admin on the Fenben Inc and foundation accounts</td><td>Ads, keywords, landing page links</td><td>Caroline</td></tr><tr><td>Google Merchant Center (5585680438)</td><td>Standard</td><td>Admin</td><td>Product feed and approvals</td><td>Caroline makes Matt Admin first</td></tr><tr><td>Meta Business Manager, Ad Account, Pixel</td><td>Full access with Caroline</td><td>Keep. Confirm the Pixel ID in the site snippets sits in the company portfolio</td><td>Ads and the BOF pixel</td><td>Done</td></tr><tr><td>Instagram</td><td>Not granted</td><td>Add Matt</td><td>Social and Instagram connection to Meta</td><td>Caroline</td></tr><tr><td>Klaviyo</td><td>Shared website login</td><td>Dedicated Admin login</td><td>Flows, campaigns and API keys</td><td>Caroline or Christy</td></tr><tr><td>Hotjar</td><td>Shared login under info@</td><td>Own login</td><td>Heatmaps and recordings on the new site</td><td>Caroline or Christy</td></tr><tr><td>Google Business Profile</td><td>The Matt login manages 0 businesses</td><td>Manager access</td><td>Listing, hours, replies</td><td>Caroline confirms the owning login</td></tr><tr><td>Trustpilot and BBB</td><td>Not granted</td><td>Add Matt</td><td>Review and complaint responses</td><td>Caroline</td></tr><tr><td>SpyFu and ClickCease</td><td>Not Yet Confirmed</td><td>Own logins, in Happy Healing's name</td><td>Competitor research and click-fraud protection</td><td>Caroline or Christy</td></tr><tr><td>AdTribes Product Feed PRO</td><td>Via WordPress admin</td><td>Keep</td><td>Feed copy and technical side</td><td>Done</td></tr></table><p class=b>Workspace</p><table><tr><th>System</th><th>Matt Has Now</th><th>Matt Needs</th><th>Used For</th><th>Who Grants</th></tr><tr><td>Slack</td><td>Admin with Caroline</td><td>Keep. Move to a new account owned by the company</td><td>Team messages and approvals</td><td>Caroline</td></tr><tr><td>1Password</td><td>User access</td><td>Keep through the rebuilt shared vault</td><td>Shared logins</td><td>Caroline</td></tr></table><p>Source: the access tables above and the live reads shown in them (Oct 16 to 20). Rows marked Not Yet Confirmed have not been read. Nothing is granted or removed without a yes.</p>`]
+];
+
+var SUMMARY=[
+"Goal: every tool, subscription and account is owned by Happy Healing.",
+"Order of work: payment processing first, then subscriptions and software, then who has access to what, new website accounts and alerts.",
+"One item at a time. Nothing is cancelled, moved or deleted without your yes.",
+"Before any change, I save a copy first (the litigation hold rule).",
+"Items marked Confirmed were read live from the website on October 8. Items marked Not Yet Confirmed are still being checked.",
+"Done, read live Oct 16: Steven and Fernando are removed from Google Analytics. Steven is removed from Tag Manager, Google Ads (4 users left) and the Right2Try Analytics account.",
+"Still open, read live Oct 16: Steven, Aaron and KC are still Admins in Merchant Center. Steven was last active in Monday on Oct 12, and Aaron is still a Monday Admin. Re-read live Oct 19: Merchant Center still lists Aaron, Steven and KC as Admins, Christy is pending, info@ is read-only and Matt is Standard. Monday still shows Steven active and Aaron as Admin. Google Ads shows four open invitations to cancel, for steven@, aaron@, travis@icommstudios.com and merchantmarketingus1@gmail.com. info@ is still a Viewer on the GA4 property.",
+"Checked live Oct 8 and still current: Meta is clean, only Matt, Christy and Caroline have access. Klaviyo does not let Matt view its user list yet. Re-read Oct 19: Meta is still clean. The ad account and the Page show only Caroline, Matt and Christy, plus Blu Sparrow as a Page partner.",
+"Not yet checked: Zendesk, Zapier and 1Password.",
+"Your Access Removal Checklist (Oct 16) is the master list for former-team access. Item 17 adds what it covers that this report did not.",
+"Not yet identified: the second payment processor. Both gateways found on the site are Authorize.Net plugins."];
+
+var DEC=[
+"The name of the new processor and its sandbox logins, shared securely.",
+"Which Authorize.Net account is behind each gateway.",
+"Your card statements for the last three months, so I can match every charge to a tool.",
+"The email address behind each Monday account.",
+"Confirmation of which Google Ads accounts are yours: Happy Healing, Fenben Inc, and the foundation.",
+"Your confirmation that Steven's Google Ads Admin access was removed (done Oct 16).",
+"Which Google Workspace role Matt takes. Your checklist keeps Super Admin with Caroline only and gives whoever works the list a lesser admin role for the duration.",
+"Whether outside partners and Isaac Prentice keep access.",
+"Your yes to name these tools in section 2.1 of the agreement: Google Search Console, Google Merchant Center, Hotjar, Google Business Profile, the AdTribes product feed, Trustpilot and BBB for review response, the social accounts, and scoped password manager access. Suggested wording: add them, plus \"and other marketing, analytics, reputation, and reporting tools as reasonably needed,\" so the list keeps pace with the work.",
+"The account register (Exhibit C) and ownership of Cloudflare and GitHub in Happy Healing's name (see item 13).",
+"Your yes or no on each row of the table added from your Access Removal Checklist (item 17).",
+"Facebook and Meta clean-up, done Oct 17 and read live: outside partners are removed from the Business Manager, the Instagram connection is removed, and the Page admins are you and Matt only.",
+"Your yes on who becomes the third trusted admin on the Page and Business Manager, so access never rests on two people.",
+"Your yes on social posting while one team member's personal Facebook is unavailable: posts go to Matt to publish from the Page, and Metricool is reconnected under your login or Matt's only after you approve.",
+"Whether any new Happy Healing Instagram is created under your ownership with a Happy Healing email.",
+"Your confirmation that the American Express ending 2005 on the Meta ad account is yours.",
+"Still being checked: the Metricool connection, any link between Right2Try and Happy Healing assets, and four rejected items in the Meta catalog.",
+"Your yes on the safeguards: keep Happy Healing separate from Right2Try and personal profiles, keep two to three Business Manager admins with two-factor on, and re-check access after any account change.",
+"The info@ mailbox was compromised. Your yes that it is removed as owner or user on every tool, and that each tool is checked for it before it is closed out.",
+"Your standing rule, committed: management@ owns every tool, Matt is an Admin only where working, and info@, aaron@, steven@, webteam@, alerts@ and admin@ are never users on any tool. Your yes that every tool is checked and brought in line with it.",
+"You said you are removed as owner every time you turn around. In Merchant Center there is no owner role, and in Google Business Manager the super admins are Aaron, you and info@. Aaron and info@ can both change your access, so removing them there comes first. Your yes to make Matt an Admin in Merchant Center and a super admin in Google Business Manager so the cleanup can be done.",
+"Your yes to remove these, read live Oct 19: Aaron, Steven and KC as Merchant Center Admins, Steven as an active Monday user and Aaron as a Monday Admin, the four open Google Ads invitations, the old caroline@happyhealinginc.com login on Google Ads and its pending Tag Manager invite, and info@ on the GA4 property and in Merchant Center. Only an Admin can remove users, so you or another Admin does it, after a saved copy.",
+"Your yes to replace the Klaviyo Gravity Forms key that info@ created on Feb 21, 2025 and uses daily, with one made under your account, before info@ is retired.",
+"Your yes to turn on two-factor sign-in for the 3 WordPress administrators, and whether Tracey still needs administrator access, last sign-in April 13. No account has it on today (54,709 accounts, 50,922 are store customers).",
+"Two things only you can see: Facebook, Accounts Center, Password and security, Where you are logged in, as a screenshot with anything unfamiliar logged out first, and the Google Workspace Admin users and device activity.",
+"Which login manages the Google Business Profile listing, since the Matt login shows 0 businesses.",
+"Whether webteam@ mail forwarded to steven@ since May 22 is stopped, and that mailbox suspended after a saved copy."];
+
+var GROUPS=[
+["Payments And Billing",[0,1,2,15]],
+["Google Ads, Merchant Center And Business Profile",[4,5,25]],
+["Meta, Facebook And Social",[11,12,13,14,16,17]],
+["Account Ownership And Access Removals",[18,19,20,21,3,7,26]],
+["Website, Email And Workspace Security",[22,23,6,24]],
+["Agreement And Account Register",[8,9,10]]];
+var K="hhReview2",S={};try{S=JSON.parse(localStorage.getItem(K)||"{}");}catch(e){}
+/* Oct 20, 2026 call results, saved in the file. Fills only blanks; anything typed in the browser wins. */
+var SEED={
+cr0:1,cr1:1,cr6:1,cr10:1,cr16:1,cr17:1,cr18:1,cr19:1,cr20:1,cr23:1,
+nr1:"No one else is on it. ELEX plugin turned back ON Oct 19 for one processor. The other Authorize.Net plugin (SkyVerge) is for the other processor. Tracey is the person who can access ELEX.",
+nr6:"Authorize.net and ELEX. Kount is the Equifax fraud tool, a separate login.",
+nr16:"Only Tracey has access, per Caroline. The admin list on screen showed two people; the second name is not yet confirmed.",
+nr17:"Tracey logged in to ELEX separately at the Elex Extensions site. secure.equifax.com is the Kount login, not ELEX. ELEX was switched back on Oct 19 for one processor.",
+nr18:"Tracey and Matt have access.",
+nr19:"KOUNT (Equifax): login at secure.equifax.com. Only Tracey has access.\n\nAVALARA: app.avalara.com. Caroline, Tracey and Maddie are users (Maddie stays). Caroline has two seats, one on the compromised info@, which goes on the removal list. Aaron and Steven are inactive (cannot be deleted without losing data). Tracey is now the compliance contact. Address set to Suite 104 and website updated Oct 20. Tracey's AMEX is on file.",
+nr20:"This is overriding everything by using the support@ email in the plugin.",
+nr23:"We don't use Venmo for anything.",
+i0:"Oct 20 call: ELEX is back on for one processor (since Oct 19) and SkyVerge covers the other. Tracey holds ELEX and Kount access. Avalara seats: Caroline (two, one on info@), Tracey, Maddie, plus inactive Aaron and Steven. Authorize.net admin list: two people, second name not yet confirmed.",
+i10:"Oct 20 call: Caroline changed the WooCommerce.com and WordPress.com account email from support@ to management@ and verified it by link. Avalara contact, address (Suite 104) and website updated.",
+i11:"Oct 20 call: the admin filter shows two super admins, Caroline and Aeris Technologies. Matt was not given admin access. The Domain-wide Delegation \"Data Migration\" entries show no dates and are not yet confirmed deleted; save a before-state first (legal hold). One former team member had admin roles removed; suspension not yet confirmed. A sales@ alias may have been started; not yet confirmed saved. Tracey emailed Aeris about support@ routing and is waiting on a reply. Matt's login shows 21 connected apps (WordPress, ShipStation, LeadConnector test, SE Ranking, Klaviyo, Apps Script tools); Caroline wants only company-owned tools connected.",
+i13:"Oct 20 call: support@ appears to be a Gmail routing rule (recipient address map) that sends mail to support@happyhealinginc.zendesk.com. It is not a user or group, and it used to be an alias of the compromised info@. To confirm in Gmail routing settings, with a before-state saved. Agreed direction: order emails go out as no-reply and point to the Contact Us form, which goes to Zendesk. The Zendesk Reply-To change made earlier is a safety net only and needs Caroline's yes or gets reverted.",
+i14:"Oct 20 call: the Admin log shows orders@ granting delegate access to Christy and Tracey. orders@ forwards to alerts@ (not shown on screen). alerts@ is a group Steven built, and FluentSMTP's Friday summary goes to alerts@. Open question: why customer replies reach alerts@ when the support@ rule points to Zendesk."
+};
+Object.keys(SEED).forEach(function(k){
+ var v=SEED[k];
+ if(/^i\d+$/.test(k)){var n=k.slice(1);S[n]=S[n]||{};if(!S[n].t)S[n].t=v;}
+ else if(k.charAt(0)=="c"){if(S[k]===undefined)S[k]=v;}
+ else {if(!S[k])S[k]=v;}
+});
+function save(){try{localStorage.setItem(K,JSON.stringify(S));}catch(e){}}
+var filt="all",expAll=true;
+var ACC={"1": ["Full WooCommerce access through WordPress Administrator (read live Oct 20). Authorize.Net: Not Yet Confirmed.", "Admin or test (sandbox) logins for Authorize.Net and the second processor."], "2": ["Admin on Happy Healing (111-362-6243).", "Admin on the Fenben Inc and foundation accounts. Owner of 990-853-7066 is unknown."], "3": ["Standard (can view, cannot change users).", "Admin. Caroline makes Matt Admin first, then the old users come off."], "4": ["Administrator on 306190072.", "Keep. Add a data stream for the new site."], "5": ["Owner on thehappyhealingstore.com.", "Owner on fenbeninc.com and right2tryinc.bz, plus a property for the new site."], "6": ["None. The Matt login manages 0 businesses.", "Manager access. Caroline confirms which login owns the listing."], "7": ["Publish, with Caroline, on the four live accounts.", "Keep. Add a container for the new site."], "8": ["Full access with Caroline on Business Manager, ad account, Pixel and Page. Instagram not granted.", "Add Instagram. Confirm the Pixel ID in the site snippets sits in the company portfolio."], "9": ["Shared website login. Cannot open the Users page.", "Own Admin login, then replace the info@ API key."], "10": ["Not Yet Confirmed.", "Admin on every Monday account, with Steven and Aaron off."], "11": ["WordPress: Administrator. WP Engine: Not Yet Confirmed.", "WP Engine user invite to matt@thehappyhealingstore.com."], "12": ["Not read. The admin console asks for a passkey on the Matt side.", "Read access to users, devices and sign-in activity, with Caroline."], "13": ["Cloudflare test site under a Happy Healing email Matt created. GitHub: signed in to the Happy Healing account on Matt's computer.", "Cloudflare production account in Happy Healing's name, delegated GoDaddy access before launch, a company-owned code repository."], "14": ["1Password: user access. Zendesk and Zapier: not read.", "Admin on Zendesk and Zapier, and the rebuilt shared 1Password vault."], "15": ["Alerts go to Matt and Christy.", "Own logins on Google Ads, Analytics, Hotjar and ClickCease so alerts reach the right people."]};
+var TAG={red:"Fix Needed",amber:"Needs Answer",gray:"Not Read Yet"};
+function esc(s){return String(s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;")}
+function steps(t){var m=t.split(/\s(?=\d\)\s)/);if(m.length>1&&/^1\)/.test(m[0])){return '<ol class="steps">'+m.map(function(x){return '<li>'+x.replace(/^\d\)\s/,'')+'</li>'}).join('')+'</ol>'}return t}
+function fmt(h){return h.replace(/<table>/g,'<div class="tw"><table>').replace(/<\/table>/g,'</table></div>').replace(/<td>(Confirmed|Done|Decided)<\/td>/g,'<td><span class="st ok">$1</span></td>').replace(/<td>(Not Yet Confirmed|Planned)<\/td>/g,'<td><span class="st no">$1</span></td>')}
+function grow(t){t.style.height="auto";t.style.height=(t.scrollHeight+2)+"px"}
+function growAll(){document.querySelectorAll("textarea").forEach(function(t){if(t.offsetParent!==null)grow(t)})}
+document.addEventListener("toggle",function(e){if(e.target.tagName=="DETAILS")growAll()},true);
+window.addEventListener("resize",growAll);
+function enhance(){
+ var M=document.getElementById("main"),c=0,r=0;
+ M.querySelectorAll("table").forEach(function(t){
+  t.querySelectorAll("tr").forEach(function(tr){
+   var head=tr.parentNode.tagName=="THEAD"||tr.querySelector("th");
+   if(head){var a=document.createElement("th");a.textContent="Done";a.className="ck";tr.insertBefore(a,tr.firstChild);var b=document.createElement("th");b.textContent="Notes";tr.appendChild(b);return}
+   var k="r"+(r++),a=document.createElement("td");a.className="ck";
+   a.innerHTML='<input type="checkbox" data-k="c'+k+'"'+(S["c"+k]?' checked':'')+'>';
+   tr.insertBefore(a,tr.firstChild);
+   var b=document.createElement("td");b.className="nt";
+   b.innerHTML='<textarea placeholder="Notes" data-n="n'+k+'" rows="2">'+esc(S["n"+k])+'</textarea>';
+   tr.appendChild(b);if(S["c"+k])tr.classList.add("rdone");
+  });
+ });
+ M.querySelectorAll("table").forEach(function(t){
+  var hs=[];var h=t.querySelector("tr");if(h)h.querySelectorAll("th").forEach(function(x){hs.push(x.textContent.trim())});
+  t.querySelectorAll("tr").forEach(function(tr){var i=0;tr.querySelectorAll("td").forEach(function(td){td.setAttribute("data-label",hs[i]||"");i++})});
+ });
+ M.querySelectorAll(".steps li,.det ul li,.sbox ul li,.rules ul li").forEach(function(li){
+  if(li.closest(".dec"))return;
+  var k="l"+(c++),i=document.createElement("input");i.type="checkbox";i.dataset.k=k;i.className="lck";if(S[k]){i.checked=true;li.classList.add("ldone")}
+  li.classList.add("hasck");li.insertBefore(i,li.firstChild);
+ });
+}
+function render(){
+ var M=document.getElementById("main"),N=document.getElementById("nav"),a=0,n=0,l=0;
+ var wasOpen=[];M.querySelectorAll("details").forEach(function(d,i){if(d.open)wasOpen.push(i)});
+ var out='<section class="hero"><h1>Company Cleanup Review</h1><p style="font-weight:600;color:#fff">Company Cleanup Report &amp; Walkthrough: Payments, Subscriptions, Software, Accounts</p><p>Updated: Tuesday, October 20, 2026 | Review Meeting: Tuesday, October 20, 2026</p><p>Go down the list one item at a time, top to bottom. Each card shows where it stands, the decision needed, and how to do it. Pick Approve, No or Later, then open Full Details only if you need the tables and steps.</p><div class="legend"><span><span class="dot" style="background:#e07a6b"></span>Fix needed</span><span><span class="dot" style="background:#e3b94f"></span>Needs an answer</span><span><span class="dot" style="background:#b9b3a3"></span>Not yet read live</span></div></section>';
+ out+='<section class="sumtop"><h3>Summary: The Short Version</h3><p class="goal"><b>Goal:</b> every tool, subscription and account is owned by Happy Healing. One item at a time. Nothing is cancelled, moved or deleted without a yes, and a copy is saved first (litigation hold).</p>'+
+ '<div class="sgrid">'+
+ '<div class="sbox"><h4>My Access At A Glance</h4><ul><li><b>Have:</b> Admin on Google Ads (Happy Healing), Analytics, Tag Manager, WordPress, Meta Business Manager and the ad account. Owner on Search Console for the main site.</li><li><b>Need:</b> Admin on Merchant Center, Klaviyo, WP Engine and Cloudflare production. Owner on Search Console for the other two sites. Instagram, Google Business Profile, Hotjar, GoDaddy and Authorize.Net access.</li><li>The full list is in item 20. Each item below shows Have and Need.</li></ul></div>'+
+ '<div class="sbox ok"><h4>Done (read live Oct 16)</h4><ul><li>Steven and Fernando removed from Google Analytics.</li><li>Steven removed from Tag Manager, Google Ads (4 users left) and the Right2Try Analytics account.</li><li>Meta and Facebook clean-up done Oct 17: outside partners removed.</li></ul></div>'+
+ '<div class="sbox no"><h4>Still Open (re-read Oct 19)</h4><ul><li>Merchant Center: Aaron, Steven and KC still Admins. Christy pending. info@ read-only. Matt is Standard.</li><li>Monday: Steven still active, Aaron still Admin.</li><li>Google Ads: four open invitations (steven@, aaron@, travis@icommstudios.com, merchantmarketingus1@gmail.com) plus the old read-only login.</li><li>info@ is still a Viewer on the GA4 property.</li><li>WordPress: no account uses two-factor (54,709 accounts, 50,922 are store customers).</li><li>Klaviyo: the Gravity Forms key made by info@ is used daily.</li></ul></div>'+
+ '<div class="sbox gr"><h4>Not Yet Known</h4><ul><li>The second payment processor. Both gateways on the site are Authorize.Net plugins.</li><li>Zendesk, Zapier and 1Password: not yet checked.</li><li>Google Workspace users and devices, and Facebook login sessions: only Caroline can see them.</li></ul></div>'+
+ '<div class="sbox"><h4>How To Read This Page</h4><ul><li>Confirmed means read live from the source on the date shown. Not Yet Confirmed means still being checked.</li><li>Your Access Removal Checklist (Oct 16) is the master list for former-team access. Item 17 adds what it covers that this report did not.</li><li>Order of work: payments, then subscriptions and software, then access, then new website accounts and alerts.</li></ul></div>'+
+ '</div></section>';
+
+ out+='<section class="sumtop calls"><h3>What Happened On The Oct 20 Call</h3><div class="sgrid">'+
+ '<div class="sbox ok"><h4>Done</h4><ul><li>ELEX gateway is on for one processor; SkyVerge covers the other.</li><li>WooCommerce.com account email moved from support@ to management@.</li><li>Avalara: Tracey set as compliance contact; address and website updated.</li><li>Admin roles removed from one former team member in Google Workspace.</li></ul></div>'+
+ '<div class="sbox"><h4>Agreed</h4><ul><li>Order emails go out as no-reply and point to the Contact Us form, which goes to Zendesk.</li><li>Maddie stays on Avalara.</li><li>Save a before-state before any removal (legal hold).</li></ul></div>'+
+ '<div class="sbox no"><h4>Still Open</h4><ul><li>Second processor name and sandbox logins; second Authorize.net admin name.</li><li>Remove Caroline\'s extra Avalara seat on info@.</li><li>Matt\'s Google Workspace role (not granted yet).</li><li>Delegation entries and the support@ routing rule: confirm and save before-state.</li><li>Zendesk Reply-To change needs Caroline\'s yes or gets reverted.</li><li>Why customer replies reach alerts@.</li></ul></div>'+
+ '</div></section>';
+ out+='<section class="rules"><h3>Ground Rules</h3><ul>'+START_INTRO.map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ul><p style="margin:10px 0 0;color:#6b6557;font-size:13px">'+esc(HOWTO)+'</p></section>';
+ var nav='<h4>Items</h4>';
+ out+='<div class="part">Part 1: Decisions</div>';
+ D.forEach(function(it,i){
+  var s=S[i]||{},d=s.d||"";if(d=="a")a++;if(d=="n")n++;if(d=="l")l++;
+  var nc=d?({a:"a",n:"n2",l:"l"})[d]:it[2];
+  nav+='<a href="#i'+it[0]+'"><span class="n '+nc+'"></span>'+it[0]+'. '+it[1]+'</a>';
+  if(filt=="open"&&d)return;
+  if(filt=="fix"&&it[2]!="red")return;
+  out+='<article class="card '+it[2]+(d?" d-"+d:"")+'" id="i'+it[0]+'"><div class="ch"><div class="num">'+it[0]+'</div><h2>'+it[1]+'</h2><span class="tag '+it[2]+'">'+TAG[it[2]]+'</span></div><div class="body">'+
+  '<div class="row"><div class="lbl">Where It Stands</div><div class="val">'+it[3]+'</div></div>'+
+  (ACC[it[0]]?'<div class="row acc"><div class="lbl">Your Access</div><div class="val"><div class="ac has"><b>Have</b><span>'+esc(ACC[it[0]][0])+'</span></div><div class="ac need"><b>Need</b><span>'+esc(ACC[it[0]][1])+'</span></div></div></div>':'')+
+  '<div class="row dn"><div class="lbl">Decision Needed</div><div class="val">'+it[4]+'</div></div>'+
+  '<div class="row"><div class="lbl">How</div><div class="val">'+steps(it[5])+'</div></div>'+
+  '<div class="acts"><button class="a'+(d=="a"?" on":"")+'" data-i="'+i+'" data-d="a">Approve</button><button class="n'+(d=="n"?" on":"")+'" data-i="'+i+'" data-d="n">No</button><button class="l'+(d=="l"?" on":"")+'" data-i="'+i+'" data-d="l">Later</button></div>'+
+  '<textarea placeholder="Notes" data-i="'+i+'">'+esc(s.t)+'</textarea>'+
+  (it[6]?'<details'+(expAll?' open':'')+'><summary>Full Details</summary><div class="det">'+fmt(it[6])+'</div></details>':'')+
+  '</div></article>';
+ });
+ if(filt=="all"){
+  out+='<div class="part">Part 2: Reference</div>';nav+='<div class="sep">Reference</div>';
+  R.forEach(function(it){
+   nav+='<a href="#i'+it[0]+'"><span class="n gray"></span>'+it[0]+'. '+it[1]+'</a>';
+   out+='<article class="card" id="i'+it[0]+'" style="border-left-color:var(--green)"><div class="ch"><div class="num">'+it[0]+'</div><h2>'+it[1]+'</h2><span class="tag ref">Reference</span></div><div class="body"><details'+(expAll?' open':'')+'><summary>Open The Tables</summary><div class="det">'+fmt(it[2])+'</div></details></div></article>';
+  });
+  nav+='<div class="sep">Wrap Up</div><a href="#sum"><span class="n gray"></span>Summary</a><a href="#dec"><span class="n gray"></span>All Decisions</a>';
+  out+='<div class="part" id="sum">Summary: The Short Version</div><article class="card" style="border-left-color:var(--green)"><div class="body"><ul class="steps" style="padding-left:20px">'+SUMMARY.map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ul></div></article>';
+  var dd=DEC.filter(function(x,i){return S["d"+i]}).length;
+  out+='<div class="part" id="dec">All Decisions By Topic</div><p style="margin:0 0 14px;color:#6b6557;font-size:15px">Tick each one as it is answered.</p><div class="grid">'+GROUPS.map(function(g){var done=g[1].filter(function(i){return S["d"+i]}).length;return '<article class="card gbox"><div class="ch"><h2>'+g[0]+'</h2><span class="tag ref">'+done+' of '+g[1].length+'</span></div><div class="body"><ul class="dec">'+g[1].map(function(i){var c=S["d"+i];return '<li class="'+(c?'done':'')+'"><input type="checkbox" data-k="d'+i+'"'+(c?' checked':'')+'><span>'+esc(DEC[i])+'</span></li>'}).join('')+'</ul></div></article>'}).join('')+'</div>';
+ }
+ out+='<div class="foot">Happy Healing, Inc. | Company Cleanup Report | October 2026. New choices save in the browser they were made in; the Oct 20 call results are saved in this file. Remove access only. Nothing is deleted.</div>';
+ var y=window.scrollY;M.innerHTML=out;N.innerHTML=nav;enhance();M.querySelectorAll("details").forEach(function(d,i){if(wasOpen.indexOf(i)>-1)d.open=true});window.scrollTo(0,y);growAll();
+ var T=D.length,open=T-a-n-l;
+ document.getElementById("prog").innerHTML='<i style="width:'+a/T*100+'%;background:#2d6a4f"></i><i style="width:'+n/T*100+'%;background:#b23a2b"></i><i style="width:'+l/T*100+'%;background:#c89a2c"></i>';
+ document.getElementById("cnt").textContent=a+" approved, "+n+" no, "+l+" later, "+open+" open";
+}
+document.addEventListener("click",function(e){
+ var b=e.target.closest("button[data-d]");
+ if(b){var i=b.dataset.i;S[i]=S[i]||{};S[i].d=(S[i].d==b.dataset.d)?"":b.dataset.d;save();render();}
+});
+document.addEventListener("change",function(e){
+ if(e.target.dataset&&e.target.dataset.k){S[e.target.dataset.k]=e.target.checked?1:0;save();render();}
+});
+document.addEventListener("input",function(e){
+ if(e.target.tagName=="TEXTAREA")grow(e.target);
+ if(e.target.dataset&&e.target.dataset.n){S[e.target.dataset.n]=e.target.value;save();return}
+ if(e.target.tagName=="TEXTAREA"){var i=e.target.dataset.i;S[i]=S[i]||{};S[i].t=e.target.value;save();}
+});
+function setF(f,id){filt=f;["fAll","fOpen","fFix"].forEach(function(x){document.getElementById(x).classList.remove("on")});document.getElementById(id).classList.add("on");render();}
+document.getElementById("fAll").onclick=function(){setF("all","fAll")};
+document.getElementById("fOpen").onclick=function(){setF("open","fOpen")};
+document.getElementById("fFix").onclick=function(){setF("fix","fFix")};
+document.getElementById("fExp").onclick=function(){expAll=!expAll;this.textContent=expAll?"Collapse All":"Expand All";render();};
+document.getElementById("fCopy").onclick=function(){
+ var L=["Happy Healing Cleanup Review, decisions as of "+new Date().toLocaleString(),""],nm={a:"APPROVED",n:"NO",l:"LATER"};
+ D.forEach(function(it,i){var s=S[i]||{};L.push(it[0]+". "+it[1]+": "+(nm[s.d]||"OPEN")+(s.t?" | Notes: "+s.t:""))});
+ L.push("","Decisions list:");DEC.forEach(function(x,i){L.push((S["d"+i]?"[x] ":"[ ] ")+x)});
+ var rr=[];document.querySelectorAll("tr").forEach(function(tr){var ta=tr.querySelector("textarea[data-n]"),cb=tr.querySelector("input[data-k^=cr]");if(!ta)return;var lab=(tr.children[1]||{}).textContent||"";if(ta.value||(cb&&cb.checked))rr.push((cb&&cb.checked?"[x] ":"[ ] ")+lab.trim()+(ta.value?" | Notes: "+ta.value:""))});
+ if(rr.length){L.push("","Table rows:");rr.forEach(function(x){L.push(x)})}
+ var t=L.join("\n"),b=this;
+ function ok(){b.textContent="Copied";setTimeout(function(){b.textContent="Copy Results"},1800)}
+ try{navigator.clipboard.writeText(t).then(ok,function(){fb()})}catch(e){fb()}
+ function fb(){var a=document.createElement("textarea");a.value=t;document.body.appendChild(a);a.select();try{document.execCommand("copy");ok()}catch(e){}document.body.removeChild(a)}
+};
+document.getElementById("fReset").onclick=function(){if(confirm("Clear browser choices and notes? The Oct 20 call results saved in this file will come back on reload.")){try{localStorage.removeItem(K);}catch(e){}location.reload();}};
+render();
+</script></body></html>
