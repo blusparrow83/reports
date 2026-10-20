@@ -237,13 +237,10 @@ th{white-space:nowrap}
 </div>
 <script>
 var START_INTRO=[
-"Caroline signs in as the account owner for each system. Matt reads along and confirms each step on screen.",
-"Before removing anyone, take a screenshot of the full user list and save it to the shared Drive folder. This keeps the record for the legal hold.",
-"Remove access only. Do not delete accounts, content or data. Where a system offers Deactivate or Suspend, use that.",
-"Remove people only after Caroline says yes to each name. Add Matt first, so access is never lost.",
-"Matt's email for every invitation: matt@thehappyhealingstore.com",
-"Menu names change over time. If a login does not show the option, that person is not the owner. Note which login is, and ask that person."];
-var HOWTO="Confirmed means it was read live from the source on the date shown. Not Yet Confirmed means it is still being checked and is not promised. Use Approve, No or Later on each card to record the decision.";
+"Before removing anyone, save a screenshot of the full user list to the shared Drive folder (legal hold).",
+"Remove access only. Do not delete accounts, content or data. Use Deactivate or Suspend where offered.",
+"Nothing is removed, cancelled or moved without a yes on that item."];
+var HOWTO="Confirmed means it was read live on the date shown. Not Yet Confirmed means it is still being checked.";
 
 var D=[
 [1,"Payment Processing","amber",
@@ -462,14 +459,12 @@ function enhance(){
 function render(){
  var M=document.getElementById("main"),N=document.getElementById("nav"),a=0,n=0,l=0;
  var wasOpen=[];M.querySelectorAll("details").forEach(function(d,i){if(d.open)wasOpen.push(i)});
- var out='<section class="hero"><h1>Company Cleanup Review</h1><p style="font-weight:600;color:#fff">Company Cleanup Report &amp; Walkthrough: Payments, Subscriptions, Software, Accounts</p><p>Updated: Tuesday, October 20, 2026 | Review Meeting: Tuesday, October 20, 2026</p><p>Go down the list one item at a time, top to bottom. Each card shows where it stands, the decision needed, and how to do it. Pick Approve, No or Later, then open Full Details only if you need the tables and steps.</p><div class="legend"><span><span class="dot" style="background:#e07a6b"></span>Fix needed</span><span><span class="dot" style="background:#e3b94f"></span>Needs an answer</span><span><span class="dot" style="background:#b9b3a3"></span>Not yet read live</span></div></section>';
+ var out='<section class="hero"><h1>Company Cleanup Review</h1><p style="font-weight:600;color:#fff">Company Cleanup Report &amp; Walkthrough: Payments, Subscriptions, Software, Accounts</p><p>Updated: Tuesday, October 20, 2026 | Review Meeting: Tuesday, October 20, 2026</p><p>Go down the list one item at a time. On each card, pick Approve, No or Later and add your notes. Click Copy Results at the top to send your answers back.</p><div class="legend"><span><span class="dot" style="background:#e07a6b"></span>Fix needed</span><span><span class="dot" style="background:#e3b94f"></span>Needs an answer</span><span><span class="dot" style="background:#b9b3a3"></span>Not yet read live</span></div></section>';
  out+='<section class="sumtop"><h3>Summary: The Short Version</h3><p class="goal"><b>Goal:</b> every tool, subscription and account is owned by Happy Healing. One item at a time. Nothing is cancelled, moved or deleted without a yes, and a copy is saved first (litigation hold).</p>'+
  '<div class="sgrid">'+
- '<div class="sbox"><h4>My Access At A Glance</h4><ul><li><b>Have:</b> Admin on Google Ads (Happy Healing), Analytics, Tag Manager, WordPress, Meta Business Manager and the ad account. Owner on Search Console for the main site.</li><li><b>Need:</b> Admin on Merchant Center, Klaviyo, WP Engine and Cloudflare production. Owner on Search Console for the other two sites. Instagram, Google Business Profile, Hotjar, GoDaddy and Authorize.Net access.</li><li>The full list is in item 20. Each item below shows Have and Need.</li></ul></div>'+
  '<div class="sbox ok"><h4>Done (read live Oct 16)</h4><ul><li>Steven and Fernando removed from Google Analytics.</li><li>Steven removed from Tag Manager, Google Ads (4 users left) and the Right2Try Analytics account.</li><li>Meta and Facebook clean-up done Oct 17: outside partners removed.</li></ul></div>'+
  '<div class="sbox no"><h4>Still Open (re-read Oct 19)</h4><ul><li>Merchant Center: Aaron, Steven and KC still Admins. Christy pending. info@ read-only. Matt is Standard.</li><li>Monday: Steven still active, Aaron still Admin.</li><li>Google Ads: four open invitations (steven@, aaron@, travis@icommstudios.com, merchantmarketingus1@gmail.com) plus the old read-only login.</li><li>info@ is still a Viewer on the GA4 property.</li><li>WordPress: no account uses two-factor (54,709 accounts, 50,922 are store customers).</li><li>Klaviyo: the Gravity Forms key made by info@ is used daily.</li></ul></div>'+
  '<div class="sbox gr"><h4>Not Yet Known</h4><ul><li>The second payment processor. Both gateways on the site are Authorize.Net plugins.</li><li>Zendesk, Zapier and 1Password: not yet checked.</li><li>Google Workspace users and devices, and Facebook login sessions: only Caroline can see them.</li></ul></div>'+
- '<div class="sbox"><h4>How To Read This Page</h4><ul><li>Confirmed means read live from the source on the date shown. Not Yet Confirmed means still being checked.</li><li>Your Access Removal Checklist (Oct 16) is the master list for former-team access. Item 17 adds what it covers that this report did not.</li><li>Order of work: payments, then subscriptions and software, then access, then new website accounts and alerts.</li></ul></div>'+
  '</div></section>';
 
  out+='<section class="sumtop calls"><h3>What Happened On The Oct 20 Call</h3><div class="sgrid">'+
@@ -488,9 +483,7 @@ function render(){
   if(filt=="fix"&&it[2]!="red")return;
   out+='<article class="card '+it[2]+(d?" d-"+d:"")+'" id="i'+it[0]+'"><div class="ch"><div class="num">'+it[0]+'</div><h2>'+it[1]+'</h2><span class="tag '+it[2]+'">'+TAG[it[2]]+'</span></div><div class="body">'+
   '<div class="row"><div class="lbl">Where It Stands</div><div class="val">'+it[3]+'</div></div>'+
-  (ACC[it[0]]?'<div class="row acc"><div class="lbl">Your Access</div><div class="val"><div class="ac has"><b>Have</b><span>'+esc(ACC[it[0]][0])+'</span></div><div class="ac need"><b>Need</b><span>'+esc(ACC[it[0]][1])+'</span></div></div></div>':'')+
   '<div class="row dn"><div class="lbl">Decision Needed</div><div class="val">'+it[4]+'</div></div>'+
-  '<div class="row"><div class="lbl">How</div><div class="val">'+steps(it[5])+'</div></div>'+
   '<div class="acts"><button class="a'+(d=="a"?" on":"")+'" data-i="'+i+'" data-d="a">Approve</button><button class="n'+(d=="n"?" on":"")+'" data-i="'+i+'" data-d="n">No</button><button class="l'+(d=="l"?" on":"")+'" data-i="'+i+'" data-d="l">Later</button></div>'+
   '<textarea placeholder="Notes" data-i="'+i+'">'+esc(s.t)+'</textarea>'+
   (it[6]?'<details'+(expAll?' open':'')+'><summary>Full Details</summary><div class="det">'+fmt(it[6])+'</div></details>':'')+
