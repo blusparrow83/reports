@@ -450,16 +450,11 @@ function enhance(){
   var hs=[];var h=t.querySelector("tr");if(h)h.querySelectorAll("th").forEach(function(x){hs.push(x.textContent.trim())});
   t.querySelectorAll("tr").forEach(function(tr){var i=0;tr.querySelectorAll("td").forEach(function(td){td.setAttribute("data-label",hs[i]||"");i++})});
  });
- M.querySelectorAll(".steps li,.det ul li,.sbox ul li,.rules ul li").forEach(function(li){
-  if(li.closest(".dec"))return;
-  var k="l"+(c++),i=document.createElement("input");i.type="checkbox";i.dataset.k=k;i.className="lck";if(S[k]){i.checked=true;li.classList.add("ldone")}
-  li.classList.add("hasck");li.insertBefore(i,li.firstChild);
- });
 }
 function render(){
  var M=document.getElementById("main"),N=document.getElementById("nav"),a=0,n=0,l=0;
  var wasOpen=[];M.querySelectorAll("details").forEach(function(d,i){if(d.open)wasOpen.push(i)});
- var out='<section class="hero"><h1>Company Cleanup Review</h1><p style="font-weight:600;color:#fff">Company Cleanup Report &amp; Walkthrough: Payments, Subscriptions, Software, Accounts</p><p>Updated: Tuesday, October 20, 2026 | Review Meeting: Tuesday, October 20, 2026</p><p>Go down the list one item at a time. On each card, pick Approve, No or Later and add your notes. Click Copy Results at the top to send your answers back.</p><div class="legend"><span><span class="dot" style="background:#e07a6b"></span>Fix needed</span><span><span class="dot" style="background:#e3b94f"></span>Needs an answer</span><span><span class="dot" style="background:#b9b3a3"></span>Not yet read live</span></div></section>';
+ var out='<section class="hero"><h1>Company Cleanup Review</h1><p style="font-weight:600;color:#fff">Company Cleanup Report &amp; Walkthrough: Payments, Subscriptions, Software, Accounts</p><p>Updated: Tuesday, October 20, 2026 | Review Meeting: Tuesday, October 20, 2026</p><div class="legend"><span><span class="dot" style="background:#e07a6b"></span>Fix needed</span><span><span class="dot" style="background:#e3b94f"></span>Needs an answer</span><span><span class="dot" style="background:#b9b3a3"></span>Not yet read live</span></div></section>';
  var nav='<h4>Items</h4>';
  out+='<div class="part">Part 1: Decisions</div>';
  D.forEach(function(it,i){
