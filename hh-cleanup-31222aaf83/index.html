@@ -227,7 +227,7 @@ th{white-space:normal}
 @media print{header.hd,nav.side,.acts,.pill{display:none}details{display:block}details>.det{display:block}}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:14px 0 18px}
 .pane{border:1px solid var(--line);border-radius:14px;padding:18px 20px;background:#fff}
-.pane.td{background:var(--pill);border-color:#dccfb6}
+.pane.ptodo{background:var(--pill);border-color:#dccfb6}
 .plbl{font:700 12px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--brown);margin-bottom:10px}
 .pval{font-size:17px;line-height:1.65}
 ul.todo{list-style:none;margin:0;padding:0}
@@ -527,7 +527,7 @@ function render(){
   if(!hid&&filt=="fix"&&it[2]!="red")return;
   var sec=["",""];
   var card='<article class="card '+it[2]+(d?" d-"+d:"")+'" id="i'+it[0]+'"><div class="ch"><div class="num">'+NUM[it[0]]+'</div><h2>'+it[1]+'</h2><span class="tag '+it[2]+'">'+TAG[it[2]]+'</span></div><div class="body">'+
-  '<div class="two"><div class="pane st"><div class="plbl">Where It Stands</div><div class="pval">'+it[3]+'</div></div><div class="pane td"><div class="plbl">Caroline To Do</div>'+todo(it[4])+'</div></div>'+
+  '<div class="two"><div class="pane pstate"><div class="plbl">Where It Stands</div><div class="pval">'+it[3]+'</div></div><div class="pane ptodo"><div class="plbl">Caroline To Do</div>'+todo(it[4])+'</div></div>'+
   (REC[it[0]]?'<div class="rec"><div class="plbl">Matt\'s Recommendation</div><p>'+REC[it[0]]+'</p></div>':'')+
   '<textarea placeholder="Notes" data-i="'+i+'">'+esc(s.t)+'</textarea>'+
   (it[6]?'<details'+(expAll?' open':'')+'><summary>Full Details</summary><div class="det">'+fmt(it[6])+'</div></details>':'')+
