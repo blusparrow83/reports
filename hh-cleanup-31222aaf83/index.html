@@ -428,17 +428,6 @@ Object.keys(SEED).forEach(function(k){
 function save(){try{localStorage.setItem(K,JSON.stringify(S));}catch(e){}}
 var filt="all",expAll=true;
 var HID=[15,19];
-var INTEG='<div class="part" id="integ">Part 3: Software And Tools</div><article class="card" style="border-left-color:var(--green)"><div class="body"><p style="margin:8px 0 14px">These are the software and tools Matt uses on Happy Healing accounts for marketing work. Each one runs through its own sign-in and can be disconnected by Caroline from that tool\'s users or connected-apps page.</p><table><tr><th>Software Or Tool</th><th>Connects To</th><th>Access Matt Has</th><th>Why It Is Safe</th></tr>'+
-'<tr><td>Adspirer (ad platform connection)</td><td>Meta ad account 4610014132405659 and Google Ads 111-362-6243</td><td>Matt\'s own admin logins on both accounts</td><td>Campaigns are built paused. Spend stays inside the $7,000 a month cap, and any increase needs Caroline\'s written approval. Every ad is read against the compliance rules before it goes live.</td></tr>'+
-'<tr><td>Klaviyo</td><td>Email flows, campaigns and API keys</td><td>Admin login for Matt is being set up. Two API keys made by Matt are listed (Zendesk and Adspirer), read Oct 19.</td><td>The last 7 days of Klaviyo activity show only Matt and Christy. The one key made by info@ is replaced with a key under Caroline\'s account before info@ is retired.</td></tr>'+
-'<tr><td>Google Workspace connected apps</td><td>Matt\'s login</td><td>21 connected apps read Oct 20, including WordPress, ShipStation, SE Ranking, Klaviyo and Apps Script tools</td><td>Caroline wants only company-owned tools connected. Each one is reviewed, and anything not needed is removed on her yes.</td></tr>'+
-'<tr><td>WordPress and WooCommerce</td><td>The live store</td><td>Administrator. WooCommerce settings, REST API keys and webhooks open live Oct 20.</td><td>Matt is one of 3 administrators. Two-factor sign-in is not on yet. It will be turned on for every administrator this week.</td></tr>'+
-'<tr><td>Google Analytics, Tag Manager and Search Console</td><td>Property 306190072, the live Tag Manager container and thehappyhealingstore.com</td><td>Administrator on Analytics, Publish on Tag Manager, Owner on Search Console, all with Caroline</td><td>Read live Oct 19: only Caroline, Matt and Christy hold editing roles on the tracking tools, with Steven removed.</td></tr>'+
-'<tr><td>Slack</td><td>Team messages and approvals</td><td>Admin with Caroline</td><td>Matt and Caroline are the only admins. A new company-owned account is planned.</td></tr>'+
-'<tr><td>Google Drive</td><td>Happy Healing files</td><td>Matt\'s connector is tied to his own Google account and cannot see the Happy Healing Drive</td><td>Happy Healing files are reached only through a browser signed in to the Happy Healing account. Nothing from that Drive passes through a connector.</td></tr>'+
-'<tr><td>Cloudflare</td><td>The new website test site</td><td>Test site only, under a Happy Healing email Matt created</td><td>The production account is created in Happy Healing\'s name only after Caroline approves, with the account register filled in first.</td></tr>'+
-'<tr><td>Shopify</td><td>Legacy store</td><td>None used</td><td>Not connected and not touched.</td></tr>'+
-'</table></div></article>';
 var NUM={1:1,2:2,3:3,4:4,5:5,6:6,7:7,8:8,9:9,10:10,11:11,12:12,13:13,14:14,16:15,17:16,18:17,20:18,15:0,19:0};
 var SEC={
 2:["Being secured","Read live Oct 19 and 20: only 4 people have access today, and Steven was removed Oct 16. Four invitations are still open (steven@, aaron@, travis@icommstudios.com, merchantmarketingus1@gmail.com). An invitation gives no access until it is accepted, and cancelling them closes the door fully. Proof after each removal: screenshot of the user list."],
@@ -534,8 +523,6 @@ function render(){
    var rc='<article class="card" id="i'+it[0]+'" style="border-left-color:var(--green)"><div class="ch"><div class="num">'+NUM[it[0]]+'</div><h2>'+it[1]+'</h2><span class="tag ref">Reference</span></div><div class="body"><details'+(expAll?' open':'')+'><summary>Open The Tables</summary><div class="det">'+fmt(it[2])+'</div></details></div></article>';
    out+=rh?'<div style="display:none">'+rc+'</div>':rc;
   });
-  nav+='<div class="sep">Software And Tools</div><a href="#integ"><span class="n gray"></span>Software, Tools And Security</a>';
-  out+=INTEG;
   nav+='<div class="sep">Wrap Up</div><a href="#sum"><span class="n gray"></span>Summary</a><a href="#dec"><span class="n gray"></span>All Decisions</a>';
   out+='<div class="part" id="sum">Summary: The Short Version</div><article class="card" style="border-left-color:var(--green)"><div class="body"><ul class="steps" style="padding-left:20px">'+SUMMARY.map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ul></div></article>';
   var dd=DEC.filter(function(x,i){return S["d"+i]}).length;
