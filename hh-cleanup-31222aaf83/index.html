@@ -511,9 +511,9 @@ function render(){
   '<div class="row"><div class="lbl">Where It Stands</div><div class="val">'+it[3]+'</div></div>'+
   (sec[0]?'<div class="row"><div class="lbl">Security</div><div class="val"><b>'+sec[0]+':</b> '+sec[1]+'</div></div>':'')+
   '<div class="row dn"><div class="lbl">Decision Needed</div><div class="val">'+it[4]+'</div></div>'+
-  '<div class="acts"><button class="a'+(d=="a"?" on":"")+'" data-i="'+i+'" data-d="a">Approve</button><button class="n'+(d=="n"?" on":"")+'" data-i="'+i+'" data-d="n">No</button><button class="l'+(d=="l"?" on":"")+'" data-i="'+i+'" data-d="l">Later</button></div>'+
   '<textarea placeholder="Notes" data-i="'+i+'">'+esc(s.t)+'</textarea>'+
   (it[6]?'<details'+(expAll?' open':'')+'><summary>Full Details</summary><div class="det">'+fmt(it[6])+'</div></details>':'')+
+  '<div class="acts" style="margin-top:14px"><button class="a'+(d=="a"?" on":"")+'" data-i="'+i+'" data-d="a">Approve</button><button class="n'+(d=="n"?" on":"")+'" data-i="'+i+'" data-d="n">No</button><button class="l'+(d=="l"?" on":"")+'" data-i="'+i+'" data-d="l">Later</button></div>'+
   '</div></article>';
   out+=hid?'<div style="display:none">'+card+'</div>':card;
  });
