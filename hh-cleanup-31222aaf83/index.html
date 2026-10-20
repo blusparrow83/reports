@@ -460,7 +460,6 @@ function render(){
  var M=document.getElementById("main"),N=document.getElementById("nav"),a=0,n=0,l=0;
  var wasOpen=[];M.querySelectorAll("details").forEach(function(d,i){if(d.open)wasOpen.push(i)});
  var out='<section class="hero"><h1>Company Cleanup Review</h1><p style="font-weight:600;color:#fff">Company Cleanup Report &amp; Walkthrough: Payments, Subscriptions, Software, Accounts</p><p>Updated: Tuesday, October 20, 2026 | Review Meeting: Tuesday, October 20, 2026</p><p>Go down the list one item at a time. On each card, pick Approve, No or Later and add your notes. Click Copy Results at the top to send your answers back.</p><div class="legend"><span><span class="dot" style="background:#e07a6b"></span>Fix needed</span><span><span class="dot" style="background:#e3b94f"></span>Needs an answer</span><span><span class="dot" style="background:#b9b3a3"></span>Not yet read live</span></div></section>';
- out+='<section class="rules"><h3>Ground Rules</h3><ul>'+START_INTRO.map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ul><p style="margin:10px 0 0;color:#6b6557;font-size:13px">'+esc(HOWTO)+'</p></section>';
  var nav='<h4>Items</h4>';
  out+='<div class="part">Part 1: Decisions</div>';
  D.forEach(function(it,i){
