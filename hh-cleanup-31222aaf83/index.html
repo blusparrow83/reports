@@ -229,7 +229,7 @@ th{white-space:nowrap}
 <header class="hd"><div class="in">
 <div class="brand">Happy Healing<small>Cleanup Review</small></div>
 <div class="stat"><div class="prog" id="prog"></div><div class="cnt" id="cnt"></div></div>
-<div class="tools"><button class="pill on" id="fAll">All</button><button class="pill" id="fOpen">Open Only</button><button class="pill" id="fFix">Fix Needed</button><button class="pill" id="fExp">Collapse All</button><button class="pill" id="fCopy">Copy Results</button><button class="pill" id="fReset">Clear</button></div>
+<div class="tools"><button class="pill on" id="fAll">All</button><button class="pill" id="fOpen">Open Only</button><button class="pill" id="fFix">Fix Needed</button><button class="pill" id="fExp">Collapse All</button><button class="pill" id="fCopy">Copy Results</button></div>
 </div></header>
 <div class="layout">
 <nav class="side" id="nav"></nav>
@@ -521,6 +521,5 @@ document.getElementById("fCopy").onclick=function(){
  try{navigator.clipboard.writeText(t).then(ok,function(){fb()})}catch(e){fb()}
  function fb(){var a=document.createElement("textarea");a.value=t;document.body.appendChild(a);a.select();try{document.execCommand("copy");ok()}catch(e){}document.body.removeChild(a)}
 };
-document.getElementById("fReset").onclick=function(){if(confirm("Clear browser choices and notes? The Oct 20 call results saved in this file will come back on reload.")){try{localStorage.removeItem(K);}catch(e){}location.reload();}};
 render();
 </script></body></html>
