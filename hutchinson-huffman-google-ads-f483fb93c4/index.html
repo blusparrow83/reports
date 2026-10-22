@@ -947,7 +947,22 @@ html body table.sc.ramp tr.total-row td:nth-child(n+3){font-family:var(--font-bo
 html.pv body table.sc.ramp tr.total-row td{background:transparent!important;border-top:2px solid #0089A3!important;color:#111}
 @media(max-width:768px){html body table.sc.ramp.stk tr.total-row td{border-top:0!important;background:transparent!important}html body table.sc.ramp.stk tr.total-row{border-top:2px solid #00C5E0!important;background:rgba(0,197,224,.08)}html body table.sc.ramp.stk tr.total-row td:first-child{padding-bottom:6px!important}html.pv body table.sc.ramp.stk tr.total-row{border-top:2px solid #0089A3!important;background:transparent}}
 html.pv body table.sc.ramp tr.total-row td strong{color:#8A6D00!important}
-</style><style>.gp{color:#E8C547!important}.chip span{color:var(--off-white)!important}.service-list strong.yr{color:#E8C547!important}.fee-card .fee-amt{color:#E8C547!important}table.sc td span[style*=nowrap] strong{color:#E8C547}.tier-note strong:first-child{color:#E8C547}.stn{color:#E8C547!important}.chip b{color:#E8C547!important}.section{border-bottom:3px solid #00C5E0!important}.section.no-rule,.section:has(+ .closing){border-bottom:none!important}.closing{border-top:3px solid #00C5E0!important}</style><div class="closing">
+</style><style>/*hh-bp-status-oct22 BluPrint status strips match the other proposal: full-width strip, dot, Sansation caps*/
+html body .bp-tiles .bp-tile{display:flex;flex-direction:column;align-items:center;padding:22px 12px 0;overflow:hidden;border-radius:14px}
+html body .bp-tiles .bp-tile .bp-pill{margin:auto -12px 0;width:calc(100% + 24px);box-sizing:border-box;padding:11px 8px;border:0;border-top:1px solid;border-radius:0;font-family:'Sansation',sans-serif;font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;display:flex;align-items:center;justify-content:center;gap:8px;background:none}
+html body .bp-tiles .bp-tile .bp-pill::before{content:"";width:8px;height:8px;border-radius:50%;background:currentColor;flex:none}
+html body .bp-tiles .bp-tile .bp-td,html body .bp-tiles .bp-tile .bp-pw{margin-bottom:16px}
+html body .bp-tiles .bp-tile.on.cur .bp-pill{color:var(--cb)!important;background:rgba(0,197,224,.14)!important;border-top-color:rgba(0,197,224,.45)!important}
+html body .bp-tiles .bp-tile.on.cur.landed .bp-pill{color:var(--cd)!important;background:rgba(61,255,138,.12)!important;border-top-color:rgba(61,255,138,.4)!important}
+html body .bp-tiles .bp-tile.on.newg .bp-pill{color:var(--cg)!important;background:rgba(232,197,71,.12)!important;border-top-color:rgba(232,197,71,.45)!important}
+html body .bp-tiles .bp-tile.on.newg .bp-pill{white-space:nowrap;letter-spacing:.05em;font-size:11px;gap:6px;padding-left:4px;padding-right:4px}
+html.pv body .bp-tiles .bp-tile.on.cur .bp-pill,html.pv body .bp-tiles .bp-tile.on.cur.landed .bp-pill,html.pv body .bp-tiles .bp-tile.on.newg .bp-pill{background:none!important}
+html.pv body .bp-tiles .bp-tile .bp-pill{background:none!important;border-top-color:rgba(0,0,0,.35)!important}
+html.pv body .bp-tiles .bp-tile.on.cur .bp-pill{color:#0089A3!important}
+html.pv body .bp-tiles .bp-tile.on.cur.landed .bp-pill{color:#0B7A3C!important}
+html.pv body .bp-tiles .bp-tile.on.newg .bp-pill{color:#8A6D00!important}
+</style>
+<style>.gp{color:#E8C547!important}.chip span{color:var(--off-white)!important}.service-list strong.yr{color:#E8C547!important}.fee-card .fee-amt{color:#E8C547!important}table.sc td span[style*=nowrap] strong{color:#E8C547}.tier-note strong:first-child{color:#E8C547}.stn{color:#E8C547!important}.chip b{color:#E8C547!important}.section{border-bottom:3px solid #00C5E0!important}.section.no-rule,.section:has(+ .closing){border-bottom:none!important}.closing{border-top:3px solid #00C5E0!important}</style><div class="closing">
  <h2 class="closing-title">Rise Above <span>The Noise</span></h2>
  <p class="closing-text">Criminal defense is the engine. Let&rsquo;s make sure the right calls reach it.</p>
  <div class="closing-sig"><strong>Prepared By Matt Arnold <span class="accent">&bull;</span> BluSparrow</strong></div>
