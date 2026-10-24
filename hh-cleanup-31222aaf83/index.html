@@ -272,6 +272,12 @@ ul.todo li:first-child:before{top:7px}
 .qs.next .ql{color:var(--green)}
 .qs.who{font-size:16px;margin-top:16px}.qs.who .ql{display:inline;margin-right:8px}.qwn{font-weight:700}
 .qlink{margin-top:18px}.qlink a{display:inline-block;background:var(--green);color:#fff!important;font:700 15px var(--sans);padding:11px 20px;border-radius:99px;text-decoration:none}
+
+h1,h2,h3,h4,.part,summary,p.b,th,.ql,.plbl,.lbl,.sbox h4,.qh,.rules h3,.sumtop h3,nav.side h4,.sep{text-transform:none!important}
+.ql{letter-spacing:.04em!important;font-size:14px!important}
+th{letter-spacing:.02em!important;font-size:13px!important}
+summary{letter-spacing:.03em!important;font-size:14px!important}
+nav.side h4,.sep{letter-spacing:.06em!important;font-size:12px!important}
 </style></head><body>
 <div class="topbar">Happy Healing &bull; Company Cleanup &bull; Friday, October 23, 2026</div>
 <header class="hd"><div class="in">
@@ -620,5 +626,17 @@ document.getElementById("fCopy").onclick=function(){
  try{navigator.clipboard.writeText(t).then(ok,function(){fb()})}catch(e){fb()}
  function fb(){var a=document.createElement("textarea");a.value=t;document.body.appendChild(a);a.select();try{document.execCommand("copy");ok()}catch(e){}document.body.removeChild(a)}
 };
+
+var SMALL={a:1,an:1,the:1,and:1,or:1,but:1,nor:1,of:1,in:1,on:1,at:1,to:1,for:1,by:1,as:1,vs:1,with:1,from:1};
+function tcStr(t){var out=t.replace(/(^|[\s(\/\-])([A-Za-z][A-Za-z'\u2019.@]*)/g,function(m,pre,w,off){
+ if(/[@.]/.test(w.replace(/\.$/,''))&&!/^[A-Za-z]+\.$/.test(w))return m;
+ if(/[A-Z]/.test(w.slice(1)))return m;
+ var lw=w.toLowerCase(),first=(off===0||/[:\u2014]\s*$/.test(t.slice(0,off))||(pre==='('&&/[:]\s*$/.test(t.slice(0,off))));
+ if(SMALL[lw]&&!first&&pre!=='-')return pre+lw;
+ return pre+w.charAt(0).toUpperCase()+w.slice(1)});
+ return out;}
+function tcNode(n){if(n.nodeType===3){if(n.nodeValue.trim())n.nodeValue=tcStr(n.nodeValue);}else if(n.nodeType===1&&!/^(SCRIPT|STYLE|TEXTAREA|BUTTON)$/.test(n.tagName)){for(var c=n.firstChild;c;c=c.nextSibling)tcNode(c);}}
+function tcAll(){document.querySelectorAll('h1,h2,h3,h4,.part,summary,p.b,th,.ql,.plbl,.lbl,.qh,nav.side a').forEach(tcNode);}
+var _r0=render;render=function(){_r0();tcAll();};
 render();
 </script></body></html>
