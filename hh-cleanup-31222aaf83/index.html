@@ -632,11 +632,12 @@ function tcStr(t){var out=t.replace(/(^|[\s(\/\-])([A-Za-z][A-Za-z'\u2019.@]*)/g
  if(/[@.]/.test(w.replace(/\.$/,''))&&!/^[A-Za-z]+\.$/.test(w))return m;
  if(/[A-Z]/.test(w.slice(1)))return m;
  var lw=w.toLowerCase(),first=(off===0||/[:\u2014]\s*$/.test(t.slice(0,off))||(pre==='('&&/[:]\s*$/.test(t.slice(0,off))));
- if(SMALL[lw]&&!first&&pre!=='-')return pre+lw;
+ var last=/^[\s)]*$/.test(t.slice(off+m.length));
+ if(SMALL[lw]&&!first&&!last&&pre!=='-')return pre+lw;
  return pre+w.charAt(0).toUpperCase()+w.slice(1)});
  return out;}
 function tcNode(n){if(n.nodeType===3){if(n.nodeValue.trim())n.nodeValue=tcStr(n.nodeValue);}else if(n.nodeType===1&&!/^(SCRIPT|STYLE|TEXTAREA|BUTTON)$/.test(n.tagName)){for(var c=n.firstChild;c;c=c.nextSibling)tcNode(c);}}
-function tcAll(){document.querySelectorAll('h1,h2,h3,h4,.part,summary,p.b,th,.ql,.plbl,.lbl,.qh,nav.side a').forEach(tcNode);}
+function tcAll(){document.querySelectorAll('h1,h2,h3,h4,.part,summary,p.b,th,.ql,.plbl,.lbl,.qh,nav.side a').forEach(function(e){if(e.textContent.length>70)return;tcNode(e)});}
 var _r0=render;render=function(){_r0();tcAll();};
 render();
 </script></body></html>
