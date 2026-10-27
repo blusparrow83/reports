@@ -290,6 +290,8 @@ nav.side h4,.sep{letter-spacing:.06em!important;font-size:12px!important}
 <main id="main"></main>
 </div>
 <script>
+/* Same link as before: forwards to the shared version (Happy Healing sign-in). Add ?local to view this copy only. */
+if(/github\.io$/.test(location.hostname)&&!/[?&]local/.test(location.search)){location.replace("https://script.google.com/a/macros/thehappyhealingstore.com/s/AKfycbzIc1B6nitJjnpmbfm1GdBEOhh2rNo2AiU2qQuCjPiz0trEqrTnW814g4nDjjQLa3L8/exec");}
 var START_INTRO=[
 "Before removing anyone, save a screenshot of the full user list to the shared Drive folder, so there is a record.",
 "Remove access only. Do not delete accounts, content or data. Use Deactivate or Suspend where offered.",
@@ -616,7 +618,7 @@ function render(){
   var dd=DEC.filter(function(x,i){return S["d"+i]}).length;
   out+='<div class="part" id="dec">All Decisions By Topic</div><p style="margin:0 0 14px;color:#6b6557;font-size:15px">Tick each one as it is answered.</p><div class="grid">'+GROUPS.map(function(g){var done=g[1].filter(function(i){return S["d"+i]}).length;return '<article class="card gbox"><div class="ch"><h2>'+g[0]+'</h2><span class="tag ref">'+done+' of '+g[1].length+'</span></div><div class="body"><ul class="dec">'+g[1].map(function(i){var c=S["d"+i];return '<li class="'+(c?'done':'')+'"><input type="checkbox" data-k="d'+i+'"'+(c?' checked':'')+'><span>'+esc(DEC[i])+'</span></li>'}).join('')+'</ul></div></article>'}).join('')+'</div>';
  }
- out+='<div class="foot">Happy Healing, Inc. | Company Cleanup Report | October 2026. Choices and notes are shared: they save to one shared sheet in the Happy Healing Google account, with each change tagged by name, and they also save in this browser. If the badge at the bottom left says offline, changes stay in this browser only. The Oct 20 call results are saved in this file. Remove access only. Nothing is deleted.</div>';
+ out+='<div class="foot">Happy Healing, Inc. | Company Cleanup Report | October 2026. Choices and notes are shared: they save to one shared sheet in the Happy Healing Google account, with each change tagged by name, and they also save in this browser. If the badge at the bottom left says offline, changes stay in this browser only. Sharing tool added Oct 27: the Apps Script project "HH Cleanup Review Sync" and the Google Sheet "HH Cleanup Review Shared State" sit in Matt's Happy Healing Google account and move to management@ later. Read back Oct 27: a test note saved to the sheet under Matt's email, then was removed. The Oct 20 call results are saved in this file. Remove access only. Nothing is deleted.</div>';
  var y=window.scrollY;M.innerHTML=out;N.innerHTML=nav;enhance();M.querySelectorAll("details").forEach(function(d,i){if(wasOpen.indexOf(i)>-1)d.open=true});window.scrollTo(0,y);growAll();
  var T=D.length-1,open=T-a-n-l;
  document.getElementById("prog").innerHTML='<i style="width:'+a/T*100+'%;background:#2d6a4f"></i><i style="width:'+n/T*100+'%;background:#b23a2b"></i><i style="width:'+l/T*100+'%;background:#c89a2c"></i>';
