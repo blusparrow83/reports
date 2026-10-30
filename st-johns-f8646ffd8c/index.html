@@ -1110,16 +1110,17 @@ html.pv .lbx{display:none!important}
 </style>
 <script id="lbxjs">
 (function(){try{
-var cards=[].slice.call(document.querySelectorAll('.lc'));if(!cards.length)return;
+var sets=[[].slice.call(document.querySelectorAll('.lc')),[].slice.call(document.querySelectorAll('.ed-fig'))].filter(function(s){return s.length});if(!sets.length)return;
 var o=document.createElement('div');o.className='lbx';o.setAttribute('role','dialog');o.setAttribute('aria-modal','true');
-o.innerHTML='<div class="lbx-card"><button class="lbx-x" aria-label="Close">&times;</button><button class="lbx-n lbx-p" aria-label="Previous">&lsaquo;</button><button class="lbx-n lbx-nx" aria-label="Next">&rsaquo;</button><div class="lbx-img"><img alt=""></div><div class="lbx-cap"><b></b><span></span></div></div>';
+o.innerHTML='<div class="lbx-card"><button class="lbx-x" aria-label="Close">&times;</button><button class="lbx-n lbx-p" aria-label="Previous">&lsaquo;</button><button class="lbx-n lbx-nx" aria-label="Next">&rsaquo;</button><div class="lbx-img"><img alt=""></div><div class="lbx-cap"><div><b></b><small></small></div><span></span></div></div>';
 document.body.appendChild(o);
-var im=o.querySelector('img'),nm=o.querySelector('.lbx-cap b'),ct=o.querySelector('.lbx-cap span'),cur=0,last=null;
-function show(i){cur=(i+cards.length)%cards.length;var c=cards[cur];var s=c.querySelector('img');im.src=s.src;im.alt=s.alt;nm.textContent=c.querySelector('figcaption').textContent;ct.textContent=(cur+1)+' / '+cards.length;}
-function open(i){last=document.activeElement;show(i);o.classList.add('on');document.documentElement.style.overflow='hidden';o.querySelector('.lbx-x').focus();}
+var im=o.querySelector('img'),nm=o.querySelector('.lbx-cap b'),sb=o.querySelector('.lbx-cap small'),ct=o.querySelector('.lbx-cap span'),cur=0,cards=sets[0],last=null;
+function label(c){var f=c.querySelector('figcaption'),s=f.querySelector('strong'),p=f.querySelector('span');return s?[s.textContent,p?p.textContent:'']:[f.textContent,''];}
+function show(i){cur=(i+cards.length)%cards.length;var c=cards[cur],s=c.querySelector('img'),l=label(c);im.src=s.src;im.alt=s.alt;nm.textContent=l[0];sb.textContent=l[1];sb.style.display=l[1]?'block':'none';ct.textContent=(cur+1)+' / '+cards.length;}
+function open(set,i){cards=set;last=document.activeElement;o.classList.toggle('shots',set[0].classList.contains('ed-fig'));show(i);o.classList.add('on');document.documentElement.style.overflow='hidden';o.querySelector('.lbx-x').focus();}
 function close(){o.classList.remove('on');document.documentElement.style.overflow='';if(last&&last.focus)last.focus();}
-cards.forEach(function(c,i){c.tabIndex=0;c.setAttribute('role','button');c.setAttribute('aria-label','View '+c.querySelector('figcaption').textContent+' larger');
-c.addEventListener('click',function(){open(i)});c.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();open(i)}});});
+sets.forEach(function(set){set.forEach(function(c,i){c.tabIndex=0;c.setAttribute('role','button');c.setAttribute('aria-label','View '+label(c)[0]+' larger');
+c.addEventListener('click',function(){open(set,i)});c.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();open(set,i)}});});});
 o.addEventListener('click',function(e){if(e.target===o)close()});
 o.querySelector('.lbx-x').addEventListener('click',close);
 o.querySelector('.lbx-p').addEventListener('click',function(){show(cur-1)});
@@ -1127,5 +1128,14 @@ o.querySelector('.lbx-nx').addEventListener('click',function(){show(cur+1)});
 document.addEventListener('keydown',function(e){if(!o.classList.contains('on'))return;if(e.key==='Escape')close();else if(e.key==='ArrowLeft')show(cur-1);else if(e.key==='ArrowRight')show(cur+1);});
 }catch(e){}})();
 </script>
+<style id="lbx2">
+html body .ed-fig{cursor:zoom-in}
+html body .ed-fig:focus-visible{outline:2px solid #00C5E0;outline-offset:3px}
+html body .lbx-cap small{display:block;font-family:'Exo',sans-serif;font-weight:300;font-size:13px;color:rgba(255,255,255,.7);margin-top:3px}
+html body .lbx.shots .lbx-card{width:min(1280px,100%)}
+html body .lbx.shots .lbx-img{height:min(76vh,820px);padding:14px}
+html body .lbx.shots .lbx-n{top:calc(50% - 44px)}
+@media(max-width:700px){html body .lbx.shots .lbx-img{height:min(60vh,520px);padding:8px}html body .lbx.shots .lbx-n{top:auto!important;bottom:70px}}
+</style>
 </body>
 </html>
